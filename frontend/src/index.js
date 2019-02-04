@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const title = 'My Minimal React Webpack Bsabeal Setup';
+const title = 'Myy Minimal React Webpack Bsadsadsabeal Setup';
 
 ReactDOM.render(
     <div>{title}</div>,
