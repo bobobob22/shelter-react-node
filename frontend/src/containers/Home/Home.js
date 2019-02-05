@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import './Home.css';
+import classes from './Home.scss';
 
 class Home extends Component {
   render() {
     return (
-      <div className="Home">
-          <p>
+      <div className={classes.Home}>
+          <p className="Home__info">
               Shelter Home
           </p>
       </div>

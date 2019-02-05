@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 
 import Home from '../Home/Home'
+
+import classes from './Navigation.scss';
+
+
 import Lost from '../Lost/Lost';
 
 import {Route} from 'react-router-dom'
@@ -8,7 +12,7 @@ import {Route} from 'react-router-dom'
 class Navigation extends Component {
   render() {
     return (
-      <div>
+      <div className={classes.Navigation}>
 
 
             <Route path="/lost" component={Lost}/>
