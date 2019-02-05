@@ -1,5 +1,5 @@
 'use strict';
-
+const autoprefixer = require('autoprefixer');
 const fs = require('fs');
 const path = require('path');
 const webpack = require('webpack');
@@ -23,6 +23,38 @@ const getClientEnvironment = require('./env');
 const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin-alt');
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
+
+const CSSModuleLoader = {
+  loader: 'css-loader',
+  options: {
+    modules: true,
+    sourceMap: true,
+    localIdentName: '[local]__[hash:base64:5]',
+    minimize: true
+  }
+};
+
+const CSSLoader = {
+  loader: 'css-loader',
+  options: {
+    modules: false,
+    sourceMap: true,
+    minimize: true
+  }
+};
+
+const postCSSLoader = {
+  loader: 'postcss-loader',
+  options: {
+    ident: 'postcss',
+    sourceMap: true,
+    plugins: () => [
+      autoprefixer({
+        browsers: ['>1%', 'last 4 versions', 'Firefox ESR', 'not ie < 9']
+      })
+    ]
+  }
+};
 
 
 // Source maps are resource heavy and can cause out of memory issue for large source files.
@@ -301,7 +333,7 @@ module.exports = function(webpackEnv) {
               options: {
                 formatter: require.resolve('react-dev-utils/eslintFormatter'),
                 eslintPath: require.resolve('eslint'),
-                
+
               },
               loader: require.resolve('eslint-loader'),
             },
@@ -334,7 +366,7 @@ module.exports = function(webpackEnv) {
                 customize: require.resolve(
                   'babel-preset-react-app/webpack-overrides'
                 ),
-                
+
                 plugins: [
                   [
                     require.resolve('babel-plugin-named-asset-import'),
@@ -374,7 +406,7 @@ module.exports = function(webpackEnv) {
                 ],
                 cacheDirectory: true,
                 cacheCompression: isEnvProduction,
-                
+
                 // If an error happens in a package, it's possible to be
                 // because it was compiled. Thus, we don't want the browser
                 // debugger to show the original code. Instead, the code
@@ -418,7 +450,7 @@ module.exports = function(webpackEnv) {
             // extensions .module.scss or .module.sass
             {
               test: sassRegex,
-              exclude: sassModuleRegex,
+              exclude: sassRegex,
               use: getStyleLoaders(
                 {
                   importLoaders: 2,
@@ -435,7 +467,7 @@ module.exports = function(webpackEnv) {
             // Adds support for CSS Modules, but using SASS
             // using the extension .module.scss or .module.sass
             {
-              test: sassModuleRegex,
+              test: sassRegex,
               use: getStyleLoaders(
                 {
                   importLoaders: 2,
@@ -445,6 +477,20 @@ module.exports = function(webpackEnv) {
                 },
                 'sass-loader'
               ),
+            },
+            {
+              test: sassRegex,
+              exclude: sassRegex,
+              use: ['style-loader', CSSLoader, postCSSLoader, 'sass-loader']
+            },
+            {
+              test: sassRegex,
+              use: [
+                'style-loader',
+                CSSModuleLoader,
+                postCSSLoader,
+                'sass-loader',
+              ]
             },
             // "file" loader makes sure those assets get served by WebpackDevServer.
             // When you `import` an asset, you get its (virtual) filename.
