@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 import classes from './AddNewPetForm.scss';
 
 import Button from '../../../components/UI/Button/Button';
 import Input from '../../../components/UI/Input/Input'
 
-class AddNewPetForm extends Component{
+class AddNewPetForm extends Component {
 
     state = {
         petForm: {
@@ -42,7 +42,7 @@ class AddNewPetForm extends Component{
         loading: false
     }
 
-    handleNewPet = ( event ) => {
+    handleNewPet = (event) => {
         event.preventDefault();
 
         const formData = {};
@@ -98,13 +98,13 @@ class AddNewPetForm extends Component{
     }
 
 
-    render(){
+    render() {
 
         const formElements = [];
 
         //bierzemy stary formularzyk i podmieniamy ze nazwa to id, config cala reszta
-        for (let key in this.state.petForm){
-            console.log(key,  "@@@@");
+        for (let key in this.state.petForm) {
+            console.log(key, "@@@@");
             console.log(this.state.petForm[key], "!!!!")
             formElements.push({
                 id: key,
@@ -123,7 +123,7 @@ class AddNewPetForm extends Component{
                     shouldValidate={formEl.config.validation}
                     touched={formEl.config.touched}
                     // label={formEl.config.elementConfig.label}
-                    changed={ (event) => this.handleInputChange (event, formEl.id) }
+                    changed={(event) => this.handleInputChange(event, formEl.id)}
                 />
             ))
         )
