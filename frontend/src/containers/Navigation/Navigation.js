@@ -3,8 +3,8 @@ import classes from './Navigation.scss';
 import Home from '../Home/Home'
 import Lost from '../Lost/Lost';
 import AddNewPet from '../AddNewPet/AddNewPet'
-
 import {Route} from 'react-router-dom'
+
 
 class Navigation extends Component {
     render() {
