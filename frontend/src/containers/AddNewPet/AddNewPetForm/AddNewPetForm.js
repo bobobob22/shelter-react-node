@@ -59,32 +59,36 @@ class AddNewPetForm extends Component{
 
     handleInputChange = (event, inputId) => {
 
-        //tworzymy nowa arrayke kopiujaca biezacy stan formularzu
+        //tworzymy nowy obiekt kopiujaca biezacy stan formularzu
         const updatedPetForm = {
             ...this.state.petForm
         }
-        console.log("updatedPetForm", updatedPetForm)
+        //console.log("updatedPetForm", updatedPetForm)
 
-
+        //inputId to key czyli np address, name
+        //tworzymy nowy tymczasowy obiekt - przetrzymujacy informacje o pojedynczym inpucie
         const updatedPetElement = {
             ...updatedPetForm[inputId]
         }
-        console.log("updatedPetElement", updatedPetElement)
+        // console.log("updatedPetElement", updatedPetElement)
 
 
-        //tutaj bedzie walidacja tez -> wtedy form is valid bedzie mialo znaczenie
+        //pobieramy wartosc
         updatedPetElement.value = event.target.value;
+        //input dotkienty -> true
         updatedPetElement.touched = true;
-
+        //nowa wartosc inputa oraz touched idzie do formularzu
         updatedPetForm[inputId] = updatedPetElement;
 
-        let formIsValid = true;
+        //tutaj bedzie walidacja tez -> wtedy form is valid bedzie mialo znaczenie
+        // let formIsValid = true;
 
 
         // for (let inputId in updatedPetForm) {
         //     formIsValid = updatedPetForm[inputId].valid && formIsValid;
         // }
 
+        //ustawiamy nowy state -> podmieniamy wartosc dotychczasowego
         this.setState({
             petForm: updatedPetForm,
             // formIsValid: formIsValid
@@ -98,7 +102,10 @@ class AddNewPetForm extends Component{
 
         const formElements = [];
 
+        //bierzemy stary formularzyk i podmieniamy ze nazwa to id, config cala reszta
         for (let key in this.state.petForm){
+            console.log(key,  "@@@@");
+            console.log(this.state.petForm[key], "!!!!")
             formElements.push({
                 id: key,
                 config: this.state.petForm[key]
@@ -120,9 +127,9 @@ class AddNewPetForm extends Component{
                 />
             ))
         )
-
-        // console.log(formElements, "FORMULARZ")
-        // console.log(form, "FORMULARZYK")
+        console.log("stary formularz", this.state.petForm);
+        console.log(formElements, "FORMULARZ")
+        console.log(form, "FORMULARZYK")
 
 
         return (
