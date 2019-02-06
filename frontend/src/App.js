@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {BrowserRouter} from 'react-router-dom';
 import styles from './App.scss';
-import Navigation from './containers/Navigation/Navigation';
 import Layout from './containers/Layout/Layout';
 
 class App extends Component {
@@ -10,10 +9,9 @@ class App extends Component {
             <>
                 <BrowserRouter>
                     <div className={styles.App}>
-                        <Navigation/>
+                        <Layout/>
                     </div>
                 </BrowserRouter>
-                <Layout/>
             </>
         );
     }

@@ -1,0 +1,10 @@
+@import '../../styles/variables';
+
+.footer {
+  padding: 20px;
+  background-color: $mainColor;
+  & .copyrights {
+    text-align: center;
+    color: $white;
+  }
+}

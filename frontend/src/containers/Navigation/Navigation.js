@@ -1,18 +1,16 @@
 import React, {Component} from 'react';
 import classes from './Navigation.scss';
-import Home from '../Home/Home'
-import Lost from '../Lost/Lost';
-import AddNewPet from '../AddNewPet/AddNewPet'
-import {Route} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
+import NavigationItem from './NavigationItem/NavigationItem'
 
 
 class Navigation extends Component {
     render() {
         return (
             <div className={classes.Navigation}>
-                <Route path="/lost" component={Lost}/>
-                <Route path="/add-new" component={AddNewPet}/>
-                <Route path="/" exact component={Home}/>
+                <NavigationItem link="/" name="Wszystkie"/>
+                <NavigationItem link="/lost" name="Zaginione"/>
+                <NavigationItem link="/add-new" name="Add New"/>
             </div>
         );
     }
