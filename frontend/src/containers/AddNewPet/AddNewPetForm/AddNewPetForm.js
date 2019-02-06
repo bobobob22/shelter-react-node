@@ -37,7 +37,9 @@ class AddNewPetForm extends Component{
                 valid: false,
                 touched: false
             }
-        }
+        },
+        formIsValid: false,
+        loading: false
     }
 
     handleNewPet = ( event ) => {
@@ -48,13 +50,47 @@ class AddNewPetForm extends Component{
         for (let formEl in this.state.petForm) {
             formData[formEl] = this.state.petForm[formEl].value;
         }
-        console.log("DATA PO SUBMICIE", formData)
+        // console.log("DATA PO SUBMICIE", formData)
+
+        //tutaj bedzie axios put do backendu
 
     }
 
 
     handleInputChange = (event, inputId) => {
-       
+
+        //tworzymy nowa arrayke kopiujaca biezacy stan formularzu
+        const updatedPetForm = {
+            ...this.state.petForm
+        }
+        console.log("updatedPetForm", updatedPetForm)
+
+
+        const updatedPetElement = {
+            ...updatedPetForm[inputId]
+        }
+        console.log("updatedPetElement", updatedPetElement)
+
+
+        //tutaj bedzie walidacja tez -> wtedy form is valid bedzie mialo znaczenie
+        updatedPetElement.value = event.target.value;
+        updatedPetElement.touched = true;
+
+        updatedPetForm[inputId] = updatedPetElement;
+
+        let formIsValid = true;
+
+
+        // for (let inputId in updatedPetForm) {
+        //     formIsValid = updatedPetForm[inputId].valid && formIsValid;
+        // }
+
+        this.setState({
+            petForm: updatedPetForm,
+            // formIsValid: formIsValid
+        });
+
+
     }
 
 
@@ -79,14 +115,14 @@ class AddNewPetForm extends Component{
                     invalid={!formEl.config.valid}
                     shouldValidate={formEl.config.validation}
                     touched={formEl.config.touched}
-                    label={formEl.config.elementConfig.label}
+                    // label={formEl.config.elementConfig.label}
                     changed={ (event) => this.handleInputChange (event, formEl.id) }
                 />
             ))
         )
 
-        console.log(formElements, "FORMULARZ")
-        console.log(form, "FORMULARZYK")
+        // console.log(formElements, "FORMULARZ")
+        // console.log(form, "FORMULARZYK")
 
 
         return (
