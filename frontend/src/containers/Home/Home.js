@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import './Home.css';
+import styles from './Home.scss';
 
 class Home extends Component {
   render() {
     return (
-      <div className="Home">
-          <p>
-              Shelter Home
+      <div className={styles.home}>
+          <p className={styles.paragraph}>
+              Shelter Home2
           </p>
+
       </div>
     );
   }

@@ -1,0 +1,18 @@
+.button{
+    box-shadow: none;
+    border: none;
+    font-size: 1rem;
+    padding: 5px 10px;
+    background-color: red;
+    color: #fff;
+    font-weight: bold;
+    text-align: right;
+}
+
+.submit-btn{
+    background-color: blue;
+}
+
+.button:disabled{
+    opacity: .7;
+}

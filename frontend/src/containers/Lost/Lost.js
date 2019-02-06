@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Lost.css';
+import './Lost.scss';
 
 class Lost extends Component {
   render() {
