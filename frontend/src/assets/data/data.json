@@ -6,7 +6,8 @@
     "place": "Kraków, małopolskie",
     "destination": "Szuka domu",
     "gender": "male",
-    "img": "http://placedog.herokuapp.com/400/400"
+
+    "img": "http://placedog.herokuapp.com/300/375"
   },
   {
     "name": "Kotek",
@@ -15,7 +16,7 @@
     "place": "Pszczyna, małopolskie",
     "destination": "Znaleziono",
     "gender": "female",
-    "img": "http://placedog.herokuapp.com/400/400"
+    "img": "http://placedog.herokuapp.com/350/390"
   },
   {
     "name": "Kocur",
@@ -24,7 +25,7 @@
     "place": "Kraków, małopolskie",
     "destination": "Szuka domu",
     "gender": "male",
-    "img": "http://placedog.herokuapp.com/400/400"
+    "img": "http://placedog.herokuapp.com/320/340"
   },
   {
     "name": "Stachu",
@@ -33,6 +34,6 @@
     "place": "Kraków, małopolskie",
     "destination": "Szuka domu",
     "gender": "male",
-    "img": "http://placedog.herokuapp.com/400/400"
+    "img": "http://placedog.herokuapp.com/380/370"
   }
 ]
