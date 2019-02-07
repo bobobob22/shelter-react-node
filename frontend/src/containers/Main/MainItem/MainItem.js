@@ -9,7 +9,7 @@ const mainItem = () => (
     <Switch>
         <Route path="/" exact component={Home}/>
         <Route path="/lost" component={Lost}/>
-        <Route path="/add-new" component={AddNewPet}/>
+        <Route path="/addnotice" component={AddNewPet}/>
         <Route component={Page404}/>
     </Switch>
 );

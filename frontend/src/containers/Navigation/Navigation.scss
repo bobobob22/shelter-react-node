@@ -1,11 +1,10 @@
 @import '../../styles/variables';
 
-.Navigation {
+.navigation {
   padding: 10px;
   background: $mainColor;
   display: grid;
   grid-template-columns: 50% 50%;
-
   &__right {
     justify-self: end;
   }
