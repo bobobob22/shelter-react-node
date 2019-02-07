@@ -1,0 +1,32 @@
+@import '../../../styles/variables';
+
+.pet {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  justify-content: center;
+  color: #FFF;
+  margin: 0 0 20px 0;
+  &__info {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+  }
+  &__wrapper {
+    display: grid;
+    background-color: $normalWhite;
+    color: $normalBlack;
+    margin: 10px 20px;
+    padding: 15px;
+    border-radius: 10px;
+  }
+  &__description {
+    margin: 20px 0;
+    opacity: 0.8;
+  }
+  &__buttons {
+    align-self: end;
+  }
+  & span {
+    display: block;
+  }
+}
