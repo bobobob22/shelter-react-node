@@ -10,6 +10,8 @@ router.get("/all", petsController.getPets);
 //POST - adding new pet
 router.post("/add-new", petsController.addPet);
 
+//get single pet
+router.get("/pet:petId", petsController.getSinglePet);
 
 
 module.exports = router

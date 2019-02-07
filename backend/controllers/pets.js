@@ -2,14 +2,17 @@
 const Pet = require('../models/pet');
 
 exports.getPets = (req, res, next) => {
-    res.status(200)
-        .json({
-            pets: [{
-                _id: '1',
-                name: 'DUPAA',
-                content: 'CONTENT',
-                date: new Date()
-            }]
+    const name = req.body.name;
+    const address = req.body.address;
+
+
+    Pet.find()
+        .then(pets => {
+            res.status(200)
+                .json({message: "ZAJEBISCIE POBRANE ZWIERZAKI", pets: pets})
+        })
+        .catch(err => {
+            console.log(err)
         })
 };
 
@@ -36,43 +39,21 @@ exports.addPet = (req, res, next) => {
 };
 
 
+exports.getSinglePet = (req, res, next ) => {
+
+    //z parametru w urlu
+    const petId = req.params.petId;
+    Pet.findById(petId)
+        .then(pet => {
+            if (!pet){
+                console.log("DUPA, error, DUPA")
+            }
+
+            res.status(200)
+                .json({message: 'Fetchet pet', pet: pet})
+
+        })
+        .catch(err => console.log(err))
 
 
-// fetch('http://localhost:8080/pets/all', {
-//     method: 'GET',
-//     body: JSON.stringify({
-//         title: 'A new pet',
-//         content: 'DUPAA'
-//     }),
-//     headers: {
-//         'Content-Type': 'application/json'
-//     }
-// })
-// .then(res => {
-//     if(res.status !== 200){
-//         throw "Chujoza";
-//     }
-//     return res.json()
-// })
-// .then(resData => console.log(resData))
-// .catch(err => console.log(err))
-
-
-
-
-// fetch('http://localhost:8080/pets/add-new', {
-//     method: 'POST',
-//     headers: {
-//         'Content-Type': 'application/json'
-//     },
-//     body: JSON.stringify({
-//         name: 'A new pet',
-//         address: 'DUPAA'
-//     })
-
-// })
-// .then(res => {
-//     res.json()
-// })
-// .then(resData => console.log(resData))
-// .catch(err => console.log(err))
+}
