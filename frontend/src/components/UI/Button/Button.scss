@@ -14,12 +14,11 @@
   transition: all .5s ease-in-out;
   border-radius: 5px;
   text-transform: uppercase;
+  &:disabled {
+    opacity: .7;
+  }
 }
 
 .submit-btn {
   background-color: $mainColor;
-}
-
-.button:disabled {
-  opacity: .7;
 }

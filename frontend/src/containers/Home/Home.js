@@ -5,7 +5,7 @@ class Home extends Component {
     render() {
         return (
             <div className={styles.home}>
-                <p className={styles.paragraph}>
+                <p className={styles.home__paragraph}>
                     Home typically paragraph!
                 </p>
             </div>

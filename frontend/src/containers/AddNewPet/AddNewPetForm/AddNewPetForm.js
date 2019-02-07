@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import classes from './AddNewPetForm.scss';
+import styles from './AddNewPetForm.scss';
 
 import Button from '../../../components/UI/Button/Button';
 import Input from '../../../components/UI/Input/Input'
@@ -133,7 +133,7 @@ class AddNewPetForm extends Component {
 
 
         return (
-            <div className={classes.addNewPetForm}>
+            <div className={styles.addNewPetForm}>
                 <form onSubmit={this.handleNewPet}>
                     {form}
                     <Button
