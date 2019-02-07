@@ -10,7 +10,7 @@ class Home extends Component {
     };
 
     componentDidMount() {
-        axios.get('https://api.myjson.com/bins/maj60')
+        axios.get('https://api.myjson.com/bins/1evrmw')
             .then(response => {
                 const animals = response.data;
                 // const updateAnimals = animals.map(post => {
@@ -25,7 +25,7 @@ class Home extends Component {
     render() {
 
         let animals = this.state.animals.map(animal => {
-            return (<Animals
+            return <Animals
                     name={animal.name}
                     race={animal.race}
                     description={animal.description}
@@ -34,7 +34,7 @@ class Home extends Component {
                     gender={animal.gender}
                     img={animal.img}
                     key={animal.name}
-            />)
+            />
         });
 
         return (

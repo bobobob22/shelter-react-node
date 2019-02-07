@@ -6,11 +6,17 @@
   justify-content: center;
   color: #FFF;
   margin: 0 0 20px 0;
+
   &__info {
     display: grid;
     grid-template-columns: auto auto;
     justify-content: space-between;
   }
+
+  &__img {
+    padding: 20px
+  }
+
   &__wrapper {
     display: grid;
     background-color: $normalWhite;
@@ -19,13 +25,16 @@
     padding: 15px;
     border-radius: 10px;
   }
+
   &__description {
     margin: 20px 0;
     opacity: 0.8;
   }
+
   &__buttons {
     align-self: end;
   }
+
   & span {
     display: block;
   }

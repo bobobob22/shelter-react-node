@@ -36,6 +36,19 @@ class AddNewPetForm extends Component {
                 },
                 valid: false,
                 touched: false
+            },
+            image: {
+                elementType: 'textarea',
+                elementConfig: {
+                    type: 'input',
+                    placeholder: 'dupa'
+                },
+                value: '',
+                validation: {
+                    required: true
+                },
+                valid: false,
+                touched: false
             }
         },
         formIsValid: false,
@@ -50,9 +63,28 @@ class AddNewPetForm extends Component {
         for (let formEl in this.state.petForm) {
             formData[formEl] = this.state.petForm[formEl].value;
         }
-        // console.log("DATA PO SUBMICIE", formData)
+        console.log("DATA PO SUBMICIE", formData)
 
-        //tutaj bedzie axios put do backendu
+
+
+
+
+        fetch('http://localhost:8080/pets/add-new', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                name: formData.name,
+                address: formData.address
+            })
+        })
+            .then(res => {
+                console.log(res, "result", typeof(res));
+                return res.json()
+            })
+            .then(resData => console.log("SSAA", resData))
+            .catch(err => console.log(err))
 
     }
 
