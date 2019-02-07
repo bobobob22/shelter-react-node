@@ -6,7 +6,7 @@ import AddNewPetForm from './AddNewPetForm/AddNewPetForm';
 class AddNewPet extends Component {
     render() {
         return (
-            <div className={styles.AddNewPet}>
+            <div className={styles.addNewPet}>
                 <AddNewPetForm/>
             </div>
         );
