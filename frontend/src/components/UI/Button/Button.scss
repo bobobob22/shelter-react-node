@@ -22,3 +22,10 @@
 .submit-btn {
   background-color: $mainColor;
 }
+
+.abcd {
+  background: blue;
+  &.ghty {
+    background: blue;
+  }
+}
