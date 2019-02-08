@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './Animals.scss';
 import Button from "../Button/Button";
 
-
 const animals = (props) => (
     <>
         <div className={styles.pet}>
@@ -19,9 +18,9 @@ const animals = (props) => (
                     <p className={styles.pet__description}>{props.description}</p>
                 </div>
                 <div className={styles.pet__buttons}>
-                    <Button>{props.destination}</Button>
-                    <Button>{props.destination}</Button>
-                    <Button>{props.gender}</Button>
+                    <Button btnClass="abcd ghty">{props.destination}</Button>
+                    <Button btnClass="pet__button pet__button--destination">{props.destination}</Button>
+                    <Button btnClass="pet__button pet__button--gender">{props.gender}</Button>
                 </div>
             </div>
         </div>
