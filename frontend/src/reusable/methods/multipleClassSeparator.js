@@ -1,7 +1,7 @@
 const splitClasses = (arg, styleVariable) => {
     const arr = arg.split(' ') || [];
     const classesArray = [];
-    arr.forEach(function (el) {
+    arr.forEach((el) => {
         if (styleVariable[el]) {
             classesArray.push(styleVariable[el]);
         }
