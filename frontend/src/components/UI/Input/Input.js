@@ -2,7 +2,7 @@ import React from 'react';
 
 import classes from './Input.scss';
 
-const input = ( props ) => {
+const input = (props) => {
 
     //deklarujemy inputElement
     let inputElement = null;
@@ -25,22 +25,23 @@ const input = ( props ) => {
     // klasy dodane do inputa -> w zaleznosci czy jest valid touched itp
     //wartość -> pobierana z rodzica -> zmienia się po event target value
     //onChange -> wysyła do rodzica propsy -> nastepuje walidacja itp
-    switch ( props.elementType ) {
-        case ( 'input' ):
+    switch (props.elementType) {
+        case ('input'):
             inputElement = <input
                 className={inputClasses.join(' ')}
                 {...props.elementConfig}
                 value={props.value}
-                onChange={props.changed} />;
+                onChange={props.changed}
+                required/>;
             break;
-        case ( 'textarea' ):
+        case ('textarea'):
             inputElement = <textarea
                 className={inputClasses.join(' ')}
                 {...props.elementConfig}
                 value={props.value}
-                onChange={props.changed} />;
+                onChange={props.changed}/>;
             break;
-        case ( 'select' ):
+        case ('select'):
             inputElement = (
                 <select
                     className={inputClasses.join(' ')}
@@ -59,7 +60,7 @@ const input = ( props ) => {
                 className={inputClasses.join(' ')}
                 {...props.elementConfig}
                 value={props.value}
-                onChange={props.changed} />;
+                onChange={props.changed}/>;
     }
 
     return (
