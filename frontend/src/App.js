@@ -17,7 +17,17 @@ import {
     faSignInAlt
 } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faStarOfLife, faSearch, faPaw, faBullhorn, faHome, faHeart, faBookReader, faHandsHelping, faMapMarked, faAddressCard, faSignInAlt);
+library.add(faStarOfLife,
+    faSearch,
+    faPaw,
+    faBullhorn,
+    faHome,
+    faHeart,
+    faBookReader,
+    faHandsHelping,
+    faMapMarked,
+    faAddressCard,
+    faSignInAlt);
 
 class App extends Component {
     render() {
