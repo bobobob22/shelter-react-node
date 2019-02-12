@@ -1,11 +1,19 @@
 @import '../../styles/variables';
 
-.navigation {
+.nav {
   padding: 10px;
   background: $mainColor;
   display: grid;
   grid-template-columns: 50% 50%;
   &__right {
     justify-self: end;
+  }
+  &__icon {
+    &__allItems {
+      color: #FFF;
+    }
+    &__search {
+      color: #FFF;
+    }
   }
 }
