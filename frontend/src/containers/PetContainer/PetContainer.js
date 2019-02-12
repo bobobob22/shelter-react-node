@@ -16,9 +16,7 @@ class PetContainer extends Component {
             })
     }
 
-
     render() {
-
         let singlePet = this.state.pets.map(pet => {
             return (
                 <SinglePetContainer
@@ -28,7 +26,7 @@ class PetContainer extends Component {
                     place={pet.place}
                     destination={pet.destination}
                     gender={pet.gender}
-                    img={pet.imgUrl}
+                    imgUrl={pet.imgUrl}
                     key={pet.name}
                     link={pet._id}/>
             )

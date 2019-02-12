@@ -2,15 +2,14 @@ import React from 'react';
 import styles from './SinglePetContainer.scss';
 import Button from "../UI/Button/Button";
 import Link from "react-router-dom/es/Link";
+import Image from '../../components/UI/Image/Image'
 import PropTypes from 'prop-types';
 
 const singlePetContainer = (props) => (
     <>
         <div className={styles.pet}>
             <div className={styles.pet__img}>
-                <Link to={props.link}>
-                    <img src={props.img} alt=""/>
-                </Link>
+                <Image link={props.link} imgUrl={props.imgUrl}/>
             </div>
             <div className={styles.pet__wrapper}>
                 <div className={styles.pet__info}>
@@ -32,13 +31,13 @@ const singlePetContainer = (props) => (
     </>
 );
 
-singlePetContainer.propTypes = {
-    link: PropTypes.string.isRequired
-};
-
-singlePetContainer.defaultProps = {
-    link: 'dupa'
-};
+// singlePetContainer.propTypes = {
+//     link: PropTypes.string.isRequired
+// };
+//
+// singlePetContainer.defaultProps = {
+//     link: 'dupa'
+// };
 
 //todo: zmienic nazwe i gdzies przeniesc folder gdzie to bedzie mialo sens
 // osoby komponent UI dla linkow i linkow z obrazkami
