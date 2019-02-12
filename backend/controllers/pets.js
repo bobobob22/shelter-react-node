@@ -2,9 +2,9 @@
 const Pet = require('../models/pet');
 
 exports.getPets = (req, res, next) => {
-    const name = req.body.name;
-    const address = req.body.address;
     Pet.find()
+        .limit(5)
+        .sort({updatedAt: -1})
         .then(pets => {
             res.status(200)
                 .json( {pets: pets} )
@@ -51,13 +51,11 @@ exports.getSinglePet = (req, res, next ) => {
 
     //z parametru w urlu
     const petId = req.params.petId;
-    console.log(petId);
 
-    
     Pet.findById(petId)
         .then(pet => {
             if (!pet){
-                console.log("DUPA, error, DUPA")
+                console.log("Niestety nie udalo sie znalezc zwierza")
             }
 
             res.status(200)
