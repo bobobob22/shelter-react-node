@@ -7,9 +7,26 @@ const petSchema = new Schema({
         type: String,
         required: true
     },
-    address: {
+    place: {
         type: String,
         required: true
+    },
+    description: {
+        type: String,
+        required: true
+    },
+    destination: {
+        type: String,
+    },
+    gender: {
+        type: String,
+    },
+    race: {
+        type: String,
+        required: true
+    },
+    imgUrl: {
+        type: String,
     },
     creator: {
         type: Object,
