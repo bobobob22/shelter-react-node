@@ -1,10 +1,10 @@
 import React from 'react';
-import styles from './Animals.scss';
+import styles from './SinglePetListContainer.scss';
 import Button from "../Button/Button";
 import Link from "react-router-dom/es/Link";
 import PropTypes from 'prop-types';
 
-const animals = (props) => (
+const singlePetListContainer = (props) => (
     <>
         <div className={styles.pet}>
             <div className={styles.pet__img}>
@@ -32,11 +32,11 @@ const animals = (props) => (
     </>
 );
 
-animals.propTypes = {
+singlePetListContainer.propTypes = {
     link: PropTypes.string.isRequired
 };
 
-animals.defaultProps = {
+singlePetListContainer.defaultProps = {
     link: 'dupa'
 };
 
@@ -44,4 +44,4 @@ animals.defaultProps = {
 // osoby komponent UI dla linkow i linkow z obrazkami
 
 
-export default animals;
+export default singlePetListContainer;

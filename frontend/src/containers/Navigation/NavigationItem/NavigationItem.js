@@ -7,3 +7,6 @@ const navigationItem = (props) => (
 );
 
 export default navigationItem;
+
+
+//todo: zmiennic semantyke - zeby dac to w tag nav, umiescic w tagach ul i li i zeby css ladnie wygladaly

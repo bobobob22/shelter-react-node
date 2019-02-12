@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Navigation from '../../containers/Navigation/Navigation';
-import Main from '../Main/Main';
-import Footer from '../Footer/Footer'
+import Main from '../../components/Main/MainItem';
+import Footer from '../../components/Footer/Footer'
 
 class Layout extends Component {
     render() {

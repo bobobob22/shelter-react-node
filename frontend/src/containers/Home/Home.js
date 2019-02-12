@@ -10,9 +10,10 @@ class Home extends Component {
     };
 
     componentWillMount() {
-        axios.get('https://api.myjson.com/bins/1evrmw')
+        axios.get('http://localhost:8080/pets/all')
             .then(response => {
-                const animals = response.data;
+                const animals = response.data.pets;
+                console.log(response);
                 // const updateAnimals = animals.map(post => {
                 //     return {
                 //         ...post
@@ -31,9 +32,9 @@ class Home extends Component {
                 place={animal.place}
                 destination={animal.destination}
                 gender={animal.gender}
-                img={animal.img}
+                img={animal.imgUrl}
                 key={animal.name}
-                link={animal.name}
+                link={animal._id}
             />
         });
 
@@ -41,6 +42,8 @@ class Home extends Component {
             <div className={styles.home}>
                 <p className={styles.home__paragraph}>
                 </p>
+
+
                 {animals}
             </div>
         );

@@ -11,7 +11,7 @@ router.get("/all", petsController.getPets);
 router.post("/add-new", petsController.addPet);
 
 //get single pet
-router.get("/pet:petId", petsController.getSinglePet);
+router.get("/:petId", petsController.getSinglePet);
 
 
-module.exports = router
+module.exports = router;

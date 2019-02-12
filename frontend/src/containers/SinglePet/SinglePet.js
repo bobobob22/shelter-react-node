@@ -10,7 +10,7 @@ class SinglePet extends Component {
 
     componentDidMount() {
         if (this.props.match.params.name) {
-            axios.get('https://api.myjson.com/bins/1evrmw')
+            axios.get('http://localhost:8080/pets/')
                 .then(response => {
                         let mySingleData = response.data;
                         let myFetchedData = mySingleData.filter(e => e.name === this.props.match.params.name);
