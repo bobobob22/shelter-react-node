@@ -21,7 +21,7 @@ const singlePetContainer = (props) => (
                     <p className={styles.pet__description}>{props.description}</p>
                 </div>
                 <div className={styles.pet__buttons}>
-                    <Button btnClass="abcd ghty">{props.destination}</Button>
+                    <Button btnClass={[styles.abcd, styles.ghty]}>{props.destination}</Button>
                     <Button btnClass="pet__button pet__button--destination">{props.destination}</Button>
                     <Button btnClass="pet__button pet__button--gender">{props.gender}</Button>
                 </div>
