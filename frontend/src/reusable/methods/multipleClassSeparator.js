@@ -1,5 +1,5 @@
 const splitClasses = (arg, styleVariable) => {
-    const arr = arg.split(' ') || [];
+    const arr = arg ? arg.split(' ') : [];
     const classesArray = [];
     arr.forEach((el) => {
         if (styleVariable[el]) {

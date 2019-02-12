@@ -9,7 +9,7 @@ class Home extends Component {
         animals: []
     };
 
-    componentDidMount() {
+    componentWillMount() {
         axios.get('https://api.myjson.com/bins/1evrmw')
             .then(response => {
                 const animals = response.data;
@@ -23,17 +23,17 @@ class Home extends Component {
     }
 
     render() {
-
-        let animals = this.state.animals.map(animal => {
+        const animals = this.state.animals.map(animal => {
             return <Animals
-                    name={animal.name}
-                    race={animal.race}
-                    description={animal.description}
-                    place={animal.place}
-                    destination={animal.destination}
-                    gender={animal.gender}
-                    img={animal.img}
-                    key={animal.name}
+                name={animal.name}
+                race={animal.race}
+                description={animal.description}
+                place={animal.place}
+                destination={animal.destination}
+                gender={animal.gender}
+                img={animal.img}
+                key={animal.name}
+                link={animal.name}
             />
         });
 
