@@ -23,12 +23,12 @@ class AddNewPetForm extends Component {
                 valid: false,
                 touched: false
             },
-            address: {
+            race: {
                 elementType: 'input',
                 elementConfig: {
-                    type: 'textarea',
-                    placeholder: 'Address',
-                    label: 'Address'
+                    type: 'text',
+                    placeholder: 'Pet race',
+                    label: 'Pet race'
                 },
                 value: '',
                 validation: {
@@ -37,16 +37,61 @@ class AddNewPetForm extends Component {
                 valid: false,
                 touched: false
             },
-            image: {
-                elementType: 'textarea',
+            place: {
+                elementType: 'input',
                 elementConfig: {
-                    type: 'input',
-                    placeholder: 'dupa'
+                    type: 'textarea',
+                    placeholder: 'Place',
+                    label: 'Place'
                 },
                 value: '',
                 validation: {
                     required: true
                 },
+                valid: false,
+                touched: false
+            },
+            description: {
+                elementType: 'textarea',
+                elementConfig: {
+                    type: 'input',
+                    placeholder: 'Description',
+                    label: 'Description'
+                },
+                value: '',
+                valid: false,
+                touched: false
+            },
+            destination: {
+                elementType: 'select',
+                elementConfig: {
+                    label: 'state',
+                    options: [
+                        {value: 'searching', displayValue: 'Szuka domu'},
+                        {value: 'lost', displayValue: 'Zaginiony'}
+                    ]
+                },
+                value: 'searching'
+            },
+            gender: {
+                elementType: 'select',
+                elementConfig: {
+                    label: 'sex',
+                    options: [
+                        {value: 'male', displayValue: 'male'},
+                        {value: 'female', displayValue: 'female'}
+                    ]
+                },
+                value: 'male'
+            },
+            imgUrl: {
+                elementType: 'input',
+                elementConfig: {
+                    type: 'input',
+                    placeholder: 'Image Url (link now)',
+                    label: 'Image'
+                },
+                value: '',
                 valid: false,
                 touched: false
             }
@@ -76,7 +121,12 @@ class AddNewPetForm extends Component {
             },
             body: JSON.stringify({
                 name: formData.name,
-                address: formData.address
+                place: formData.place,
+                description: formData.description,
+                destination: formData.destination,
+                gender: formData.gender,
+                race: formData.race,
+                imgUrl: formData.imgUrl
             })
         })
             .then(res => {
@@ -136,8 +186,8 @@ class AddNewPetForm extends Component {
 
         //bierzemy stary formularzyk i podmieniamy ze nazwa to id, config cala reszta
         for (let key in this.state.petForm) {
-            console.log(key, "@@@@");
-            console.log(this.state.petForm[key], "!!!!")
+            // console.log(key, "@@@@");
+            // console.log(this.state.petForm[key], "!!!!")
             formElements.push({
                 id: key,
                 config: this.state.petForm[key]
@@ -154,14 +204,14 @@ class AddNewPetForm extends Component {
                     invalid={!formEl.config.valid}
                     shouldValidate={formEl.config.validation}
                     touched={formEl.config.touched}
-                    // label={formEl.config.elementConfig.label}
+                    label={formEl.config.elementConfig.label}
                     changed={(event) => this.handleInputChange(event, formEl.id)}
                 />
             ))
         )
-        console.log("stary formularz", this.state.petForm);
-        console.log(formElements, "FORMULARZ")
-        console.log(form, "FORMULARZYK")
+        // console.log("stary formularz", this.state.petForm);
+        // console.log(formElements, "FORMULARZ")
+        // console.log(form, "FORMULARZYK")
 
 
         return (
