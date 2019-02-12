@@ -6,24 +6,22 @@ import NavigationItem from './NavigationItem/NavigationItem'
 class Navigation extends Component {
     render() {
         return (
-            <nav>
-                <div className={styles.navigation}>
-                    <div className={styles.navigation__left}>
-                        <NavigationItem link="/" name="Wszystkie"/>
-                        <NavigationItem link="/lost" name="Zaginione"/>
-                        <NavigationItem link="/" name="Do adopcji"/>
-                        <NavigationItem link="/" name="Znalezione"/>
-                        <NavigationItem link="/" name="Schroniska"/>
+            <nav className={styles.nav}>
+                    <div className={styles.nav__left}>
+                        <NavigationItem link="/" name="Wszystkie" icon="star-of-life" className={[styles.nav__icon__allItems]}/>
+                        <NavigationItem link="/lost" name="Zaginione" icon="search" className={[styles.nav__icon__search]}/>
+                        <NavigationItem link="/" name="Do adopcji" icon="paw"/>
+                        <NavigationItem link="/" name="Znalezione" icon="bullhorn"/>
+                        <NavigationItem link="/" name="Schroniska" icon="home"/>
                     </div>
-                    <div className={styles.navigation__right}>
-                        <NavigationItem link="/" name="Ulubione"/>
-                        <NavigationItem link="/" name="Twoje ogłoszenia"/>
-                        <NavigationItem link="/" name="Wsparcie"/>
-                        <NavigationItem link="/addnotice" name="Dodaj ogłoszenie"/>
-                        <NavigationItem link="/" name="Zarejestruj się"/>
-                        <NavigationItem link="/" name="Zaloguj się"/>
+                    <div className={styles.nav__right}>
+                        <NavigationItem link="/" name="Ulubione" icon="heart"/>
+                        <NavigationItem link="/" name="Twoje ogłoszenia" icon="book-reader"/>
+                        <NavigationItem link="/" name="Wsparcie" icon="hands-helping"/>
+                        <NavigationItem link="/addnotice" name="Dodaj ogłoszenie" icon="map-marked"/>
+                        <NavigationItem link="/" name="Zarejestruj się" icon="address-card"/>
+                        <NavigationItem link="/" name="Zaloguj się" icon="sign-in-alt"/>
                     </div>
-                </div>
             </nav>
         );
     }

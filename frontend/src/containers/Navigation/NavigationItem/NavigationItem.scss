@@ -1,12 +1,23 @@
 @import '../../../styles/variables';
 
-.navigation {
+.navigation__elementsContainer {
   display: inline-block;
-  &__item {
-    list-style-type: none;
-  }
-  &__link {
-    margin: 20px;
-    color: $normalWhite;
-  }
+}
+
+.navigation__item {
+  list-style-type: none;
+}
+
+.nav__icon {
+  display: block;
+  margin: 0 auto 10px auto;
+  font-size: 20px;
+  color: #ccc;
+}
+
+.navigation__link {
+  color: $normalWhite;
+  font-weight: 300;
+  display: block;
+  margin: 7px 15px;
 }
