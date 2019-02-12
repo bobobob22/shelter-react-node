@@ -1,12 +1,16 @@
 import React from 'react';
-import styles from './Animals.scss';
+import styles from './SinglePetListContainer.scss';
 import Button from "../Button/Button";
+import Link from "react-router-dom/es/Link";
+import PropTypes from 'prop-types';
 
-const animals = (props) => (
+const singlePetListContainer = (props) => (
     <>
         <div className={styles.pet}>
             <div className={styles.pet__img}>
-                <img src={props.img} alt=""/>
+                <Link to={props.link}>
+                    <img src={props.img} alt=""/>
+                </Link>
             </div>
             <div className={styles.pet__wrapper}>
                 <div className={styles.pet__info}>
@@ -28,5 +32,16 @@ const animals = (props) => (
     </>
 );
 
+singlePetListContainer.propTypes = {
+    link: PropTypes.string.isRequired
+};
 
-export default animals;
+singlePetListContainer.defaultProps = {
+    link: 'dupa'
+};
+
+//todo: zmienic nazwe i gdzies przeniesc folder gdzie to bedzie mialo sens
+// osoby komponent UI dla linkow i linkow z obrazkami
+
+
+export default singlePetListContainer;

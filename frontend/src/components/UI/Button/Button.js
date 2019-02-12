@@ -10,9 +10,11 @@ const button = (props) => (
         className={classNames(classes.button, multipleClassSeparator(props.btnClass, classes))}
         onClick={props.clicked}>
         {props.children}
-        {console.log(classes[props.btnClass])}
     </button>
 );
+
+//todo: usunac walidacje stad na buttona i dodawac propsTypes w komponencie
+//todo: zrobic zamiane z buttona na anchora
 
 
 export default button;

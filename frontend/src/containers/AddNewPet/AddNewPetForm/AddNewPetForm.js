@@ -68,7 +68,8 @@ class AddNewPetForm extends Component {
                     label: 'state',
                     options: [
                         {value: 'searching', displayValue: 'Szuka domu'},
-                        {value: 'lost', displayValue: 'Zaginiony'}
+                        {value: 'lost', displayValue: 'Zaginiony'},
+                        {value: 'founded', displayValue: 'Znaleziono'}
                     ]
                 },
                 value: 'searching'
@@ -98,7 +99,7 @@ class AddNewPetForm extends Component {
         },
         formIsValid: false,
         loading: false
-    }
+    };
 
     handleNewPet = (event) => {
         event.preventDefault();
@@ -108,7 +109,7 @@ class AddNewPetForm extends Component {
         for (let formEl in this.state.petForm) {
             formData[formEl] = this.state.petForm[formEl].value;
         }
-        console.log("DATA PO SUBMICIE", formData)
+        console.log("DATA PO SUBMICIE", formData);
 
 
 
