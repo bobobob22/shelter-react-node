@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import classes from './AddNewPetForm.scss';
+import styles from './AddNewPetForm.scss';
 
 import Button from '../../../components/UI/Button/Button';
 import Input from '../../../components/UI/Input/Input'
@@ -23,12 +23,12 @@ class AddNewPetForm extends Component {
                 valid: false,
                 touched: false
             },
-            address: {
+            race: {
                 elementType: 'input',
                 elementConfig: {
-                    type: 'textarea',
-                    placeholder: 'Address',
-                    label: 'Address'
+                    type: 'text',
+                    placeholder: 'Pet race',
+                    label: 'Pet race'
                 },
                 value: '',
                 validation: {
@@ -36,11 +36,70 @@ class AddNewPetForm extends Component {
                 },
                 valid: false,
                 touched: false
+            },
+            place: {
+                elementType: 'input',
+                elementConfig: {
+                    type: 'textarea',
+                    placeholder: 'Place',
+                    label: 'Place'
+                },
+                value: '',
+                validation: {
+                    required: true
+                },
+                valid: false,
+                touched: false
+            },
+            description: {
+                elementType: 'textarea',
+                elementConfig: {
+                    type: 'input',
+                    placeholder: 'Description',
+                    label: 'Description'
+                },
+                value: '',
+                valid: false,
+                touched: false
+            },
+            destination: {
+                elementType: 'select',
+                elementConfig: {
+                    label: 'state',
+                    options: [
+                        {value: 'searching', displayValue: 'Szuka domu'},
+                        {value: 'lost', displayValue: 'Zaginiony'},
+                        {value: 'founded', displayValue: 'Znaleziono'}
+                    ]
+                },
+                value: 'searching'
+            },
+            gender: {
+                elementType: 'select',
+                elementConfig: {
+                    label: 'sex',
+                    options: [
+                        {value: 'male', displayValue: 'male'},
+                        {value: 'female', displayValue: 'female'}
+                    ]
+                },
+                value: 'male'
+            },
+            imgUrl: {
+                elementType: 'input',
+                elementConfig: {
+                    type: 'input',
+                    placeholder: 'Image Url (link now)',
+                    label: 'Image'
+                },
+                value: '',
+                valid: false,
+                touched: false
             }
         },
         formIsValid: false,
         loading: false
-    }
+    };
 
     handleNewPet = (event) => {
         event.preventDefault();
@@ -50,9 +109,33 @@ class AddNewPetForm extends Component {
         for (let formEl in this.state.petForm) {
             formData[formEl] = this.state.petForm[formEl].value;
         }
-        // console.log("DATA PO SUBMICIE", formData)
+        console.log("DATA PO SUBMICIE", formData);
 
-        //tutaj bedzie axios put do backendu
+
+
+
+
+        fetch('http://localhost:8080/pets/add-new', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                name: formData.name,
+                place: formData.place,
+                description: formData.description,
+                destination: formData.destination,
+                gender: formData.gender,
+                race: formData.race,
+                imgUrl: formData.imgUrl
+            })
+        })
+            .then(res => {
+                console.log(res, "result", typeof(res));
+                return res.json()
+            })
+            .then(resData => console.log("SSAA", resData))
+            .catch(err => console.log(err))
 
     }
 
@@ -104,8 +187,8 @@ class AddNewPetForm extends Component {
 
         //bierzemy stary formularzyk i podmieniamy ze nazwa to id, config cala reszta
         for (let key in this.state.petForm) {
-            console.log(key, "@@@@");
-            console.log(this.state.petForm[key], "!!!!")
+            // console.log(key, "@@@@");
+            // console.log(this.state.petForm[key], "!!!!")
             formElements.push({
                 id: key,
                 config: this.state.petForm[key]
@@ -122,18 +205,18 @@ class AddNewPetForm extends Component {
                     invalid={!formEl.config.valid}
                     shouldValidate={formEl.config.validation}
                     touched={formEl.config.touched}
-                    // label={formEl.config.elementConfig.label}
+                    label={formEl.config.elementConfig.label}
                     changed={(event) => this.handleInputChange(event, formEl.id)}
                 />
             ))
         )
-        console.log("stary formularz", this.state.petForm);
-        console.log(formElements, "FORMULARZ")
-        console.log(form, "FORMULARZYK")
+        // console.log("stary formularz", this.state.petForm);
+        // console.log(formElements, "FORMULARZ")
+        // console.log(form, "FORMULARZYK")
 
 
         return (
-            <div className={classes.addNewPetForm}>
+            <div className={styles.addNewPetForm}>
                 <form onSubmit={this.handleNewPet}>
                     {form}
                     <Button

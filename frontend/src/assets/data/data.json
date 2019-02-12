@@ -1,0 +1,39 @@
+[
+  {
+    "name": "Piesek",
+    "race": "Labrador",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam diam felis, finibus vel ipsum et, imperdiet tristique mauris. Mauris condimentum gravida nisi, quis efficitur magna sodales sit amet.",
+    "place": "Kraków, małopolskie",
+    "destination": "Szuka domu",
+    "gender": "male",
+
+    "img": "http://placedog.herokuapp.com/300/375"
+  },
+  {
+    "name": "Kotek",
+    "race": "Dachowiec",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam diam felis, finibus vel ipsum et, imperdiet tristique mauris. Mauris condimentum gravida nisi, quis efficitur magna sodales sit amet.",
+    "place": "Pszczyna, małopolskie",
+    "destination": "Znaleziono",
+    "gender": "female",
+    "img": "http://placedog.herokuapp.com/350/390"
+  },
+  {
+    "name": "Kocur",
+    "race": "Brytyjski",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam diam felis, finibus vel ipsum et, imperdiet tristique mauris. Mauris condimentum gravida nisi, quis efficitur magna sodales sit amet.",
+    "place": "Kraków, małopolskie",
+    "destination": "Szuka domu",
+    "gender": "male",
+    "img": "http://placedog.herokuapp.com/320/340"
+  },
+  {
+    "name": "Stachu",
+    "race": "Owczarek niemiecki",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam diam felis, finibus vel ipsum et, imperdiet tristique mauris. Mauris condimentum gravida nisi, quis efficitur magna sodales sit amet.",
+    "place": "Kraków, małopolskie",
+    "destination": "Szuka domu",
+    "gender": "male",
+    "img": "http://placedog.herokuapp.com/380/370"
+  }
+]

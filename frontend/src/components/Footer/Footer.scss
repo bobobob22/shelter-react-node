@@ -3,8 +3,8 @@
 .footer {
   padding: 20px;
   background-color: $mainColor;
-  & .copyrights {
+  &__copyrights {
     text-align: center;
-    color: $white;
+    color: $normalWhite;
   }
 }

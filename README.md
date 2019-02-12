@@ -1,6 +1,6 @@
 # Hello and Welcome to Shelter Project
 
-* The hostel is a portal, which was the main goal of gathering information about Polish shelters and their pupils. We want all children's information to be available in one place, and this portal has provided the opportunity to quickly add information about animals for adoption, those missing and found.
+* The hostel is a portal, which was the main goal of gathering information about Polish shelters and their pupils. We want all children's information to be available in one place, and this portal has provided the opportunity to quickly add information about singlePetContainer for adoption, those missing and found.
 
 ## Project main technologies
 

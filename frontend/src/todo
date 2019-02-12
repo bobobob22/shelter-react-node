@@ -1,0 +1,4 @@
+//todo: refactor komponentu home, aby home wyswietlal inny kompononent (pet container)
+//todo: home zawiera w sobie pet container ktory zawiera w sobie single pet container - pet container fetchuje dane zas single pet je wyswietla
+
+//todo: zrobic osobny komponent w UI - IMG (fajnie jezeli bedzie dalo sie zaznazyc czy ma miec link, jesli nie ma to nie pokazuje sie )

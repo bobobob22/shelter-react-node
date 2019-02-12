@@ -1,6 +1,12 @@
 @import '../../../styles/variables';
 
-.navigation__item {
-  margin: 20px;
-  color: $white;
+.navigation {
+  display: inline-block;
+  &__item {
+    list-style-type: none;
+  }
+  &__link {
+    margin: 20px;
+    color: $normalWhite;
+  }
 }
