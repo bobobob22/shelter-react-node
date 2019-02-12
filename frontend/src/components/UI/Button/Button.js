@@ -1,13 +1,12 @@
 import React from 'react';
 import classes from './Button.scss';
 import classNames from 'classnames';
-import multipleClassSeparator from '../../../reusable/methods/multipleClassSeparator';
 
 
 const button = (props) => (
     <button
         disabled={props.disabled}
-        className={classNames(classes.button, multipleClassSeparator(props.btnClass, classes))}
+        className={classNames(classes.button, [props.btnClass])}
         onClick={props.clicked}>
         {props.children}
     </button>

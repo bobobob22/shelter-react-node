@@ -1,16 +1,15 @@
 import React from 'react';
-import styles from './SinglePetListContainer.scss';
-import Button from "../Button/Button";
+import styles from './SinglePetContainer.scss';
+import Button from "../UI/Button/Button";
 import Link from "react-router-dom/es/Link";
+import Image from '../../components/UI/Image/Image'
 import PropTypes from 'prop-types';
 
-const singlePetListContainer = (props) => (
+const singlePetContainer = (props) => (
     <>
         <div className={styles.pet}>
             <div className={styles.pet__img}>
-                <Link to={props.link}>
-                    <img src={props.img} alt=""/>
-                </Link>
+                <Image link={props.link} imgUrl={props.imgUrl}/>
             </div>
             <div className={styles.pet__wrapper}>
                 <div className={styles.pet__info}>
@@ -22,7 +21,7 @@ const singlePetListContainer = (props) => (
                     <p className={styles.pet__description}>{props.description}</p>
                 </div>
                 <div className={styles.pet__buttons}>
-                    <Button btnClass="abcd ghty">{props.destination}</Button>
+                    <Button btnClass={[styles.abcd, styles.ghty]}>{props.destination}</Button>
                     <Button btnClass="pet__button pet__button--destination">{props.destination}</Button>
                     <Button btnClass="pet__button pet__button--gender">{props.gender}</Button>
                 </div>
@@ -32,16 +31,16 @@ const singlePetListContainer = (props) => (
     </>
 );
 
-singlePetListContainer.propTypes = {
-    link: PropTypes.string.isRequired
-};
-
-singlePetListContainer.defaultProps = {
-    link: 'dupa'
-};
+// singlePetContainer.propTypes = {
+//     link: PropTypes.string.isRequired
+// };
+//
+// singlePetContainer.defaultProps = {
+//     link: 'dupa'
+// };
 
 //todo: zmienic nazwe i gdzies przeniesc folder gdzie to bedzie mialo sens
 // osoby komponent UI dla linkow i linkow z obrazkami
 
 
-export default singlePetListContainer;
+export default singlePetContainer;
