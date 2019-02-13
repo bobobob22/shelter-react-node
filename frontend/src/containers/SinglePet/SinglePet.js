@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import styles from './SinglePet.scss';
+// import styles from './SinglePet.scss';
 import SinglePetContainer from "../../components/SinglePetContainer/SinglePetContainer";
 
 class SinglePet extends Component {
@@ -29,7 +29,6 @@ class SinglePet extends Component {
                     gender={this.state.pet.gender}
                     imgUrl={this.state.pet.imgUrl}
                     key={this.state.pet.name}/>
-                {console.log(this.props.match.params)}
             </>
         );
     }

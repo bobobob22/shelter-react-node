@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './SinglePetContainer.scss';
 import Image from '../../components/UI/Image/Image'
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import PetDetails from '../PetDetails/PetDetails'
 
 const singlePetContainer = (props) => (

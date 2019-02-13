@@ -1,4 +1,7 @@
-//todo: refactor komponentu home, aby home wyswietlal inny kompononent (pet container)
-//todo: home zawiera w sobie pet container ktory zawiera w sobie single pet container - pet container fetchuje dane zas single pet je wyswietla
-
-//todo: zrobic osobny komponent w UI - IMG (fajnie jezeli bedzie dalo sie zaznazyc czy ma miec link, jesli nie ma to nie pokazuje sie )
+//todo: 1. MOBILKA
+//todo: 2. dolozyc przycisk edycja (gdziekolwiek) ktory odnosi do uzupelnionego formularz takiego jak w dodaj ogloszenie
+//todo 3. formularz logowania - rejestracja (schronisko, user)
+//todo 4. google mapy ( na razie to pierdolic)
+//todo 5. animacja react routing
+//todo 6. walidacja formularzy
+//todo 7. zrobienie grida w cssie
