@@ -3,7 +3,7 @@ import styles from './Footer.scss';
 
 const footer = props => (
     <footer className={styles.footer}>
-        <p className={styles.footer__copyrights}>Copyright 2019 by Romantyk & Filozof</p>
+        <p className={styles.footer__copyrights}>Copyright 2019 by Romantyk &amp; Filozof</p>
     </footer>
 );
 

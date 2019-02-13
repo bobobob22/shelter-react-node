@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-
 import styles from './AddNewPetForm.scss';
 
 import Button from '../../../components/UI/Button/Button';
@@ -103,7 +102,6 @@ class AddNewPetForm extends Component {
 
     handleNewPet = (event) => {
         event.preventDefault();
-
         const formData = {};
 
         for (let formEl in this.state.petForm) {
@@ -111,30 +109,26 @@ class AddNewPetForm extends Component {
         }
         console.log("DATA PO SUBMICIE", formData);
 
-
-
-
-
         fetch('http://localhost:8080/pets/add-new', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                name: formData.name,
-                place: formData.place,
-                description: formData.description,
-                destination: formData.destination,
-                gender: formData.gender,
-                race: formData.race,
-                imgUrl: formData.imgUrl
+                    name: formData.name,
+                    place: formData.place,
+                    description: formData.description,
+                    destination: formData.destination,
+                    gender: formData.gender,
+                    race: formData.race,
+                    imgUrl: formData.imgUrl
+                })
             })
-        })
             .then(res => {
                 console.log(res, "result", typeof(res));
                 return res.json()
             })
-            .then(resData => console.log("SSAA", resData))
+            .then(resData => console.log( resData ))
             .catch(err => console.log(err))
 
     }
@@ -146,15 +140,12 @@ class AddNewPetForm extends Component {
         const updatedPetForm = {
             ...this.state.petForm
         }
-        //console.log("updatedPetForm", updatedPetForm)
 
         //inputId to key czyli np address, name
         //tworzymy nowy tymczasowy obiekt - przetrzymujacy informacje o pojedynczym inpucie
         const updatedPetElement = {
             ...updatedPetForm[inputId]
         }
-        // console.log("updatedPetElement", updatedPetElement)
-
 
         //pobieramy wartosc
         updatedPetElement.value = event.target.value;
@@ -165,7 +156,6 @@ class AddNewPetForm extends Component {
 
         //tutaj bedzie walidacja tez -> wtedy form is valid bedzie mialo znaczenie
         // let formIsValid = true;
-
 
         // for (let inputId in updatedPetForm) {
         //     formIsValid = updatedPetForm[inputId].valid && formIsValid;
@@ -182,13 +172,10 @@ class AddNewPetForm extends Component {
 
 
     render() {
-
         const formElements = [];
 
         //bierzemy stary formularzyk i podmieniamy ze nazwa to id, config cala reszta
         for (let key in this.state.petForm) {
-            // console.log(key, "@@@@");
-            // console.log(this.state.petForm[key], "!!!!")
             formElements.push({
                 id: key,
                 config: this.state.petForm[key]
@@ -196,8 +183,11 @@ class AddNewPetForm extends Component {
         }
 
         let form = (
-            formElements.map(formEl => (
-                <Input
+            formElements.map((formEl, index) => (
+                <>
+                 {/* {index % 2 == 0 ? '<div className="wrapper">'  : '' } */}
+
+                    <Input
                     key={formEl.id}
                     elementType={formEl.config.elementType}
                     elementConfig={formEl.config.elementConfig}
@@ -207,23 +197,23 @@ class AddNewPetForm extends Component {
                     touched={formEl.config.touched}
                     label={formEl.config.elementConfig.label}
                     changed={(event) => this.handleInputChange(event, formEl.id)}
-                />
+                    />
+
+                 {/* {index % 2 == 0 ?  '</div>'  : ''} */}
+
+                </>
             ))
         )
-        // console.log("stary formularz", this.state.petForm);
-        // console.log(formElements, "FORMULARZ")
-        // console.log(form, "FORMULARZYK")
-
 
         return (
             <div className={styles.addNewPetForm}>
-                <form onSubmit={this.handleNewPet}>
+                <form className={styles.Form} onSubmit={this.handleNewPet}>
                     {form}
                     <Button
-                        btnType="submit-btn"
+                        btnClass="submit-btn"
                         // disabled
                     >
-                        Click me
+                        Add new pet
                     </Button>
                 </form>
             </div>

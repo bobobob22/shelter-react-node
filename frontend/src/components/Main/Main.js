@@ -6,7 +6,7 @@ import AddNewPet from "../../containers/AddNewPet/AddNewPet";
 import Page404 from "../Page404/Page404";
 import SinglePet from "../../containers/SinglePet/SinglePet";
 
-const mainItem = () => (
+const main = () => (
     <main>
         <Switch>
             <Route path="/" exact component={Home}/>
@@ -18,4 +18,4 @@ const mainItem = () => (
     </main>
 );
 
-export default mainItem;
+export default main;

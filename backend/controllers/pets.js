@@ -2,9 +2,24 @@
 const Pet = require('../models/pet');
 
 exports.getPets = (req, res, next) => {
-    const name = req.body.name;
-    const address = req.body.address;
-    Pet.find()
+    const destination = req.query.destination;
+    const place = req.query.place;
+    const filters = {};
+
+    if(destination){
+        filters.destination = destination
+    }
+
+    if (place) {
+        filters.place = place;
+    }
+
+
+    console.log(filters);
+
+    Pet.find({...filters})
+        .limit(10)
+        .sort({updatedAt: -1})
         .then(pets => {
             res.status(200)
                 .json( {pets: pets} )
@@ -51,13 +66,11 @@ exports.getSinglePet = (req, res, next ) => {
 
     //z parametru w urlu
     const petId = req.params.petId;
-    console.log(petId);
 
-    
     Pet.findById(petId)
         .then(pet => {
             if (!pet){
-                console.log("DUPA, error, DUPA")
+                console.log("Niestety nie udalo sie znalezc zwierza")
             }
 
             res.status(200)

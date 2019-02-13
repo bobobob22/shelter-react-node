@@ -10,7 +10,11 @@ class PetContainer extends Component {
     };
 
     componentDidMount() {
-        axios.get('http://localhost:8080/pets/all')
+        let url = 'http://localhost:8080/pets/all';
+        if(this.props.type) {
+            url += `?destination=${this.props.type}`
+        }
+        axios.get(url)
             .then(response => {
                 this.setState({pets: response.data.pets})
             })
@@ -35,6 +39,7 @@ class PetContainer extends Component {
         return (
             <>
                 {singlePet}
+                {console.log(this.props)}
             </>
         )
     }

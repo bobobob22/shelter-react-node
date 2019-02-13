@@ -29,6 +29,7 @@ class SinglePet extends Component {
                     gender={this.state.pet.gender}
                     imgUrl={this.state.pet.imgUrl}
                     key={this.state.pet.name}/>
+                {console.log(this.props.match.params)}
             </>
         );
     }
