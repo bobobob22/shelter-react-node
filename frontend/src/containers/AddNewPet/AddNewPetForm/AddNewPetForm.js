@@ -186,7 +186,7 @@ class AddNewPetForm extends Component {
             formElements.map((formEl, index) => (
                 <>
                  {/* {index % 2 == 0 ? '<div className="wrapper">'  : '' } */}
-                    
+
                     <Input
                     key={formEl.id}
                     elementType={formEl.config.elementType}
@@ -198,9 +198,9 @@ class AddNewPetForm extends Component {
                     label={formEl.config.elementConfig.label}
                     changed={(event) => this.handleInputChange(event, formEl.id)}
                     />
-                   
+
                  {/* {index % 2 == 0 ?  '</div>'  : ''} */}
-            
+
                 </>
             ))
         )
@@ -210,7 +210,7 @@ class AddNewPetForm extends Component {
                 <form className={styles.Form} onSubmit={this.handleNewPet}>
                     {form}
                     <Button
-                        btnType="submit-btn"
+                        btnClass="submit-btn"
                         // disabled
                     >
                         Add new pet

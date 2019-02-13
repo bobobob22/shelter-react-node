@@ -22,6 +22,7 @@ const singlePetContainer = (props) => (
             </div>
         </div>
         <hr/>
+
     </>
 );
 
