@@ -2,17 +2,14 @@
 const Pet = require('../models/pet');
 
 exports.getPets = (req, res, next) => {
+    const destination = req.query.destination;
+    const filters = {}
 
-    //na sztywno, bedzie z urla
-   
-    const filters = {
-        gender: "male",
-        destination: "searching"
+    if(destination){
+        filters.destination = destination
     }
-
-    const query = {...filters}
-
-    Pet.find(query)
+    
+    Pet.find({...filters})
         .limit(10)
         .sort({updatedAt: -1})
         .then(pets => {
