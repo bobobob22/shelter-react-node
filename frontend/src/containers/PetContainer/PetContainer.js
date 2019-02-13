@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import SinglePetContainer from '../../components/SinglePetContainer/SinglePetContainer'
 import axios from 'axios';
-import styles from './PetContainer.scss'
+// import styles from './PetContainer.scss'
 
 class PetContainer extends Component {
 
@@ -39,7 +39,6 @@ class PetContainer extends Component {
         return (
             <>
                 {singlePet}
-                {console.log(this.props)}
             </>
         )
     }

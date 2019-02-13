@@ -5,12 +5,14 @@ import Lost from "../../containers/Lost/Lost";
 import AddNewPet from "../../containers/AddNewPet/AddNewPet";
 import Page404 from "../Page404/Page404";
 import SinglePet from "../../containers/SinglePet/SinglePet";
+import ForAdoption from "../../containers/ForAdoption/ForAdoption";
 
 const main = () => (
     <main>
         <Switch>
             <Route path="/" exact component={Home}/>
             <Route path="/lost" component={Lost}/>
+            <Route path="/searching" component={ForAdoption}/>
             <Route path="/addnotice" component={AddNewPet}/>
             <Route path="/:id" component={SinglePet}/>
             <Route component={Page404}/>
