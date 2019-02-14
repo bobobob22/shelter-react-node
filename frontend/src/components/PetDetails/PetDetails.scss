@@ -1,14 +1,36 @@
 .pet {
+  display: grid;
+  background-color: #FFF;
+  color: #000;
+  padding: 15px;
+
   &__description {
     margin: 20px 0;
     opacity: 0.8;
   }
 
+  &__info {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+  }
   &__buttons {
     align-self: end;
+    display: flex;
+  }
+  &__button:last-of-type {
+    margin-left: auto;
   }
 
   & span {
     display: block;
   }
+}
+
+.abcd {
+  background: lightgray !important;
+}
+
+.ghty {
+  background: lightgray !important;
 }

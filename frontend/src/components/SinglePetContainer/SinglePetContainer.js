@@ -7,10 +7,7 @@ import PetDetails from '../PetDetails/PetDetails'
 const singlePetContainer = (props) => (
     <>
         <div className={styles.pet}>
-            <div className={styles.pet__img}>
                 <Image link={props.link} imgUrl={props.imgUrl}/>
-            </div>
-            <div className={styles.pet__wrapper}>
                 <PetDetails
                     name={props.name}
                     race={props.race}
@@ -19,10 +16,7 @@ const singlePetContainer = (props) => (
                     destination={props.destination}
                     gender={props.gender}
                 />
-            </div>
         </div>
-        <hr/>
-
     </>
 );
 
