@@ -1,101 +1,13 @@
 import React, {Component} from 'react';
 import styles from './AddNewPetForm.scss';
-
+import PetForm from '../../../Forms/PetForm'
 import Button from '../../../components/UI/Button/Button';
 import Input from '../../../components/UI/Input/Input'
 
 class AddNewPetForm extends Component {
 
     state = {
-        petForm: {
-            name: {
-                elementType: 'input',
-                elementConfig: {
-                    type: 'text',
-                    placeholder: 'Pet name',
-                    label: 'Pet name'
-                },
-                value: '',
-                validation: {
-                    required: true
-                },
-                valid: false,
-                touched: false
-            },
-            race: {
-                elementType: 'input',
-                elementConfig: {
-                    type: 'text',
-                    placeholder: 'Pet race',
-                    label: 'Pet race'
-                },
-                value: '',
-                validation: {
-                    required: true
-                },
-                valid: false,
-                touched: false
-            },
-            place: {
-                elementType: 'input',
-                elementConfig: {
-                    type: 'textarea',
-                    placeholder: 'Place',
-                    label: 'Place'
-                },
-                value: '',
-                validation: {
-                    required: true
-                },
-                valid: false,
-                touched: false
-            },
-            description: {
-                elementType: 'textarea',
-                elementConfig: {
-                    type: 'input',
-                    placeholder: 'Description',
-                    label: 'Description'
-                },
-                value: '',
-                valid: false,
-                touched: false
-            },
-            destination: {
-                elementType: 'select',
-                elementConfig: {
-                    label: 'state',
-                    options: [
-                        {value: 'searching', displayValue: 'Szuka domu'},
-                        {value: 'lost', displayValue: 'Zaginiony'},
-                        {value: 'founded', displayValue: 'Znaleziono'}
-                    ]
-                },
-                value: 'searching'
-            },
-            gender: {
-                elementType: 'select',
-                elementConfig: {
-                    label: 'sex',
-                    options: [
-                        {value: 'male', displayValue: 'male'},
-                        {value: 'female', displayValue: 'female'}
-                    ]
-                },
-                value: 'male'
-            },
-            imgUrl: {
-                elementType: 'input',
-                elementConfig: {
-                    type: 'input',
-                    placeholder: 'Image Url (link now)',
-                    label: 'Image'
-                },
-                value: '',
-                valid: false,
-                touched: false
-            }
-        },
+        petForm: PetForm.petForm,
         formIsValid: false,
         loading: false
     };
@@ -115,20 +27,21 @@ class AddNewPetForm extends Component {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                    name: formData.name,
-                    place: formData.place,
-                    description: formData.description,
-                    destination: formData.destination,
-                    gender: formData.gender,
-                    race: formData.race,
-                    imgUrl: formData.imgUrl
-                })
+                name: formData.name,
+                city: formData.city,
+                province: formData.province,
+                race: formData.race,
+                description: formData.description,
+                destination: formData.destination,
+                gender: formData.gender,
+                imgUrl: formData.imgUrl
             })
+        })
             .then(res => {
-                console.log(res, "result", typeof(res));
+                console.log(res, "result", typeof (res));
                 return res.json()
             })
-            .then(resData => console.log( resData ))
+            .then(resData => console.log(resData))
             .catch(err => console.log(err))
 
     }
@@ -185,21 +98,21 @@ class AddNewPetForm extends Component {
         let form = (
             formElements.map((formEl, index) => (
                 <>
-                 {/* {index % 2 == 0 ? '<div className="wrapper">'  : '' } */}
+                    {/* {index % 2 == 0 ? '<div className="wrapper">'  : '' } */}
 
                     <Input
-                    key={formEl.id}
-                    elementType={formEl.config.elementType}
-                    elementConfig={formEl.config.elementConfig}
-                    value={formEl.config.value}
-                    invalid={!formEl.config.valid}
-                    shouldValidate={formEl.config.validation}
-                    touched={formEl.config.touched}
-                    label={formEl.config.elementConfig.label}
-                    changed={(event) => this.handleInputChange(event, formEl.id)}
+                        key={formEl.id}
+                        elementType={formEl.config.elementType}
+                        elementConfig={formEl.config.elementConfig}
+                        value={formEl.config.value}
+                        invalid={!formEl.config.valid}
+                        shouldValidate={formEl.config.validation}
+                        touched={formEl.config.touched}
+                        label={formEl.config.elementConfig.label}
+                        changed={(event) => this.handleInputChange(event, formEl.id)}
                     />
 
-                 {/* {index % 2 == 0 ?  '</div>'  : ''} */}
+                    {/* {index % 2 == 0 ?  '</div>'  : ''} */}
 
                 </>
             ))
@@ -214,6 +127,7 @@ class AddNewPetForm extends Component {
                         // disabled
                     >
                         Add new pet
+                        {console.log(this.state.petForm)}
                     </Button>
                 </form>
             </div>
@@ -223,3 +137,10 @@ class AddNewPetForm extends Component {
 
 
 export default AddNewPetForm;
+
+
+function solution(string) {
+    let newString = [].push(string);
+    newString.map(e => e.toUpperCase());
+    console.log(newString);
+}

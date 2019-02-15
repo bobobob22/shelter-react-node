@@ -7,21 +7,25 @@ const petSchema = new Schema({
         type: String,
         required: true
     },
-    place: {
+    city: {
+        type: String,
+        required: true
+    },
+    province: {
+        type: String,
+        required: true
+    },
+    race: {
         type: String,
         required: true
     },
     description: {
         type: String,
-        required: true
     },
     destination: {
         type: String,
     },
     gender: {
-        type: String,
-    },
-    race: {
         type: String,
         required: true
     },

@@ -32,20 +32,22 @@ exports.getPets = (req, res, next) => {
 
 exports.addPet = (req, res, next) => {
     const name = req.body.name;
-    const place = req.body.place;
+    const city = req.body.city;
+    const province = req.body.province;
+    const race = req.body.race;
     const description = req.body.description;
     const destination = req.body.destination;
     const gender = req.body.gender;
-    const race = req.body.race;
     const imgUrl = req.body.imgUrl;
 
     const pet = new Pet({
-        name: name,
-        place: place,
+        name,
+        city,
+        province,
+        race,
         description,
         destination,
         gender,
-        race,
         imgUrl,
         creator: {name: 'Dawid'},
     });
