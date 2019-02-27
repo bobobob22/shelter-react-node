@@ -3,12 +3,20 @@ const Pet = require('../models/pet');
 
 exports.getPets = (req, res, next) => {
     const destination = req.query.destination;
-    const filters = {}
+    const place = req.query.place;
+    const filters = {};
 
     if(destination){
         filters.destination = destination
     }
-    
+
+    if (place) {
+        filters.place = place;
+    }
+
+
+    console.log(filters);
+
     Pet.find({...filters})
         .limit(10)
         .sort({updatedAt: -1})

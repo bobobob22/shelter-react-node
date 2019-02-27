@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import PetContainer from '../PetContainer/PetContainer'
 
+
 class Home extends Component {
 
-    render(){
+    render() {
         return (
             <>
               <PetContainer/>
@@ -13,3 +14,5 @@ class Home extends Component {
 }
 
 export default Home;
+
+

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import SinglePetContainer from '../../components/SinglePetContainer/SinglePetContainer'
 import axios from 'axios';
-import styles from './PetContainer.scss'
+// import styles from './PetContainer.scss'
 
 class PetContainer extends Component {
 
@@ -11,8 +11,8 @@ class PetContainer extends Component {
 
     componentDidMount() {
         let url = 'http://localhost:8080/pets/all';
-        if(this.props.type){
-            url = `http://localhost:8080/pets/all/?destination=${this.props.type}`
+        if(this.props.type) {
+            url += `?destination=${this.props.type}`
         }
         axios.get(url)
             .then(response => {

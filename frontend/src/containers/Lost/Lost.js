@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PetContainer from "../PetContainer/PetContainer";
 import './Lost.scss';
 import PetContainer from '../PetContainer/PetContainer'
 
@@ -7,13 +8,13 @@ import Axios from 'axios';
 
 class Lost extends Component {
 
-    render(){
-        return (
-             <>
-                <PetContainer type="lost"/>
-             </>
-        );
-    }
+    render() {
+    return (
+      <div className="Lost">
+          <PetContainer type="lost"/>
+      </div>
+    );
+  }
 }
 
 export default Lost;
