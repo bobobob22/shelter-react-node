@@ -6,6 +6,8 @@ import Home from '../../containers/Home/Home'
 import Lost from "../../containers/Lost/Lost"
 import ToAdopt from '../../containers/ToAdopt/ToAdopt';
 import Founded from '../../containers/Founded/Founded'
+import Login from '../../containers/Login/Login'
+import Register from '../../containers/Register/Register';
 import Page404 from "../Page404/Page404";
 import SinglePet from "../../containers/SinglePet/SinglePet";
 import ForAdoption from "../../containers/ForAdoption/ForAdoption";

@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-// import styles from './SinglePet.scss';
-import SinglePetContainer from "../../components/SinglePetContainer/SinglePetContainer";
-
+import styles from './SinglePet.scss';
+import Image from '../..//components/UI/Image/Image'
 class SinglePet extends Component {
 
     state = {
