@@ -30,7 +30,7 @@ app.use("/pets", petRoutes);
 
 mongoose
   .connect(
-    'mongodb+srv://Dawid:ejbXZ0wGMSO0V0Pz@sheltercluster-n0dwi.mongodb.net/pets?retryWrites=true'
+    'mongodb+srv://Dawid:y2Ou810FOHXXPhyx@sheltercluster-n0dwi.mongodb.net/pets?retryWrites=true'
   )
   .then(result => {
     console.log("Connected");

@@ -7,12 +7,11 @@
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "mongo-express": "^0.51.1",
-    "mongodb": "^3.1.13",
-    "nodemon": "^1.18.9"
+    "mongodb": "^3.1.13"
   },
   "devDependencies": {
     "mongoose": "^5.4.10",
-    "nodemon": "^1.18.9"
+    "nodemon": "^1.18.10"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

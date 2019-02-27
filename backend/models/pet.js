@@ -25,6 +25,12 @@ const petSchema = new Schema({
         type: String,
         required: true
     },
+    longitude: {
+        type: String,
+    },
+    latitude: {
+        type: String,
+    },
     imgUrl: {
         type: String,
     },
