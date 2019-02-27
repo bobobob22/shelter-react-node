@@ -68,7 +68,8 @@ class AddNewPetForm extends Component {
                     options: [
                         {value: 'searching', displayValue: 'Szuka domu'},
                         {value: 'lost', displayValue: 'Zaginiony'},
-                        {value: 'founded', displayValue: 'Znaleziono'}
+                        {value: 'founded', displayValue: 'Znaleziono'},
+                        {value: 'to-adopt', displayValue: 'Do adopcji'}
                     ]
                 },
                 value: 'searching'
@@ -94,6 +95,28 @@ class AddNewPetForm extends Component {
                 value: '',
                 valid: false,
                 touched: false
+            },
+            longitude: {
+                elementType: 'input',
+                elementConfig: {
+                    type: 'text',
+                    placeholder: 'Longitude',
+                    label: 'Longitude'
+                },
+                value: '',
+                valid: false,
+                touched: false
+            },
+            latitude: {
+                elementType: 'test',
+                elementConfig: {
+                    type: 'text',
+                    placeholder: 'latitude',
+                    label: 'latitude'
+                },
+                value: '',
+                valid: false,
+                touched: false
             }
         },
         formIsValid: false,
@@ -107,7 +130,6 @@ class AddNewPetForm extends Component {
         for (let formEl in this.state.petForm) {
             formData[formEl] = this.state.petForm[formEl].value;
         }
-        console.log("DATA PO SUBMICIE", formData);
 
         fetch('http://localhost:8080/pets/add-new', {
             method: 'POST',
@@ -125,7 +147,6 @@ class AddNewPetForm extends Component {
                 })
             })
             .then(res => {
-                console.log(res, "result", typeof(res));
                 return res.json()
             })
             .then(resData => console.log( resData ))
@@ -192,15 +213,11 @@ class AddNewPetForm extends Component {
                     elementType={formEl.config.elementType}
                     elementConfig={formEl.config.elementConfig}
                     value={formEl.config.value}
-                    invalid={!formEl.config.valid}
-                    shouldValidate={formEl.config.validation}
-                    touched={formEl.config.touched}
                     label={formEl.config.elementConfig.label}
                     changed={(event) => this.handleInputChange(event, formEl.id)}
                     />
                    
                  {/* {index % 2 == 0 ?  '</div>'  : ''} */}
-            
                 </>
             ))
         )
@@ -208,7 +225,9 @@ class AddNewPetForm extends Component {
         return (
             <div className={styles.addNewPetForm}>
                 <form className={styles.Form} onSubmit={this.handleNewPet}>
-                    {form}
+                    <div className={styles.FormContainer}>
+                         {form}
+                    </div>
                     <Button
                         btnType="submit-btn"
                         // disabled

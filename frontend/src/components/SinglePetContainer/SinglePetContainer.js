@@ -6,10 +6,10 @@ import PetDetails from '../PetDetails/PetDetails'
 
 const singlePetContainer = (props) => (
     <>
-        <div className={styles.pet}>
-            <div className={styles.pet__img}>
-                <Image link={props.link} imgUrl={props.imgUrl}/>
-            </div>
+        <section className={styles.pet}>
+            <aside className={styles.pet__img}>
+                <Image link={'/pet/' + props.link} imgUrl={props.imgUrl}/>
+            </aside>
             <div className={styles.pet__wrapper}>
                 <PetDetails
                     name={props.name}
@@ -20,21 +20,11 @@ const singlePetContainer = (props) => (
                     gender={props.gender}
                 />
             </div>
-        </div>
+        </section>
         <hr/>
     </>
 );
 
-// singlePetContainer.propTypes = {
-//     link: PropTypes.string.isRequired
-// };
-//
-// singlePetContainer.defaultProps = {
-//     link: 'dupa'
-// };
-
-//todo: zmienic nazwe i gdzies przeniesc folder gdzie to bedzie mialo sens
-// osoby komponent UI dla linkow i linkow z obrazkami
 
 
 export default singlePetContainer;

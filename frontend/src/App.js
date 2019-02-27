@@ -1,7 +1,10 @@
 import React, {Component} from 'react';
 import {BrowserRouter} from 'react-router-dom';
 import styles from './App.scss';
-import Layout from './containers/Layout/Layout';
+import Navigation from './containers/Navigation/Navigation';
+import Main from './components/Main/Main';
+import Footer from './components/Footer/Footer'
+
 import {library} from '@fortawesome/fontawesome-svg-core'
 import {
     faStarOfLife,
@@ -11,32 +14,40 @@ import {
     faHome,
     faHeart,
     faBookReader,
-    faHandsHelping,
     faMapMarked,
     faAddressCard,
     faSignInAlt
 } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faStarOfLife,
+library.add(
+    faStarOfLife,
     faSearch,
     faPaw,
     faBullhorn,
     faHome,
     faHeart,
     faBookReader,
-    faHandsHelping,
     faMapMarked,
     faAddressCard,
-    faSignInAlt);
+    faSignInAlt
+);
 
 class App extends Component {
     render() {
         return (
             <>
                 <BrowserRouter>
-                    <div className={styles.App}>
-                        <Layout/>
-                    </div>
+                    <>
+                        <header>
+                            <Navigation/>
+                        </header>
+                        <main>
+                            <Main/>
+                        </main>
+                        <footer>
+                            <Footer/>
+                        </footer>
+                    </>
                 </BrowserRouter>
             </>
         );

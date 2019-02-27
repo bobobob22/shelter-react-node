@@ -2,9 +2,9 @@ import React from 'react';
 import styles from './Footer.scss';
 
 const footer = props => (
-    <footer className={styles.footer}>
+    <div className={styles.footer}>
         <p className={styles.footer__copyrights}>Copyright 2019 by Romantyk &amp; Filozof</p>
-    </footer>
+    </div>
 );
 
 export default footer;

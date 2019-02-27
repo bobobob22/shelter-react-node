@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import styles from './SinglePet.scss';
-import SinglePetContainer from "../../components/SinglePetContainer/SinglePetContainer";
+import Image from '../../components/UI/Image/Image'
 
 class SinglePet extends Component {
 
@@ -19,17 +19,20 @@ class SinglePet extends Component {
 
     render() {
         return (
-            <>
-                <SinglePetContainer
-                    name={this.state.pet.name}
-                    race={this.state.pet.race}
-                    description={this.state.pet.description}
-                    place={this.state.pet.place}
-                    destination={this.state.pet.destination}
-                    gender={this.state.pet.gender}
-                    imgUrl={this.state.pet.imgUrl}
-                    key={this.state.pet.name}/>
-            </>
+            <div className={styles.SinglePet}>
+                <h1>{this.state.pet.name}</h1>
+                <p>{this.state.pet.race}</p>
+                <p>{this.state.pet.description}</p>
+
+                <p>Ikonka płci: {this.state.pet.gender}</p>
+                <p>google mapy: {this.state.pet.place}</p>
+                <p>Status: {this.state.pet.destination}</p>
+
+                <p>Galeria (komponent galerii gdy bedzie wiecej zdjec anizeli jedno (input type multiple)): 
+                    <Image imgUrl={this.state.pet.imgUrl} lightbox="true" />
+                </p>
+
+            </div>
         );
     }
 }

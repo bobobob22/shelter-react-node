@@ -3,10 +3,12 @@ import classes from './Button.scss';
 import classNames from 'classnames';
 
 
+
 const button = (props) => (
     <button
         disabled={props.disabled}
         className={classNames(classes.button, [props.btnClass])}
+     
         onClick={props.clicked}>
         {props.children}
     </button>

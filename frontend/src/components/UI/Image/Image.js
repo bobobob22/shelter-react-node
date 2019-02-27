@@ -10,7 +10,13 @@ const image = (props) => {
                 <img src={props.imgUrl} alt="" className={styles.img}/>
             </Link>
         )
-    } else {
+    } else if(props.lightbox){
+        return (
+            <a href={props.imgUrl}>
+                <img src={props.imgUrl} alt=""/>
+            </a>
+        )
+    }else {
         return (
             <img src={props.imgUrl} alt=""/>
         )
