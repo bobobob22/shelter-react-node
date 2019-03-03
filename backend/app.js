@@ -1,11 +1,14 @@
 // const path = require('path');
 
 const express = require('express');
-const petRoutes = require('./routes/pets');
+
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
 // const multer = require('multer');
+
+const petRoutes = require('./routes/pets');
+const authRoutes = require('./routes/auth');
 
 
 const app = express();
@@ -26,7 +29,7 @@ app.use((req, res, next) => {
 });
 
 app.use("/pets", petRoutes);
-
+app.use('/auth', authRoutes);
 
 mongoose
   .connect(
