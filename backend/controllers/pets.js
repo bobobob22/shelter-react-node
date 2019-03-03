@@ -31,6 +31,8 @@ exports.getPets = (req, res, next) => {
 
 
 exports.addPet = (req, res, next) => {
+
+    console.log(req, "@@@@@")
     const name = req.body.name;
     const place = req.body.place;
     const description = req.body.description;
@@ -38,6 +40,8 @@ exports.addPet = (req, res, next) => {
     const gender = req.body.gender;
     const race = req.body.race;
     const imgUrl = req.body.imgUrl;
+    const latitude = req.body.latitude;
+    const longitude = req.body.longitude;
 
     const pet = new Pet({
         name: name,
@@ -47,6 +51,8 @@ exports.addPet = (req, res, next) => {
         gender,
         race,
         imgUrl,
+        latitude,
+        longitude,
         creator: {name: 'Dawid'},
     });
 
