@@ -13,15 +13,42 @@ import GoogleMaps from '../../components/GoogleMaps/GoogleMaps'
 class PetContainer extends Component {
 
     state = {
-        pets: []
+        pets: [],
+
     };
 
     componentDidMount() {
+
+        const token = localStorage.getItem('token');
+        const expiryDate = localStorage.getItem('expiryDate');
+        if (!token || !expiryDate) {
+          return;
+        }
+        // if (new Date(expiryDate) <= new Date()) {
+        //   this.logoutHandler();
+        //   return;
+        // }
+        const userId = localStorage.getItem('userId');
+    
+        this.setState({ isAuth: true, token: token, userId: userId });
+
+        // const remainingMilliseconds =
+        // new Date(expiryDate).getTime() - new Date().getTime();
+        // this.setAutoLogout(remainingMilliseconds);
+
+
+
         let url = 'http://localhost:8080/pets/all';
         if(this.props.type) {
             url += `?destination=${this.props.type}`
         }
+        // fetch(url, {
+        //     headers: {
+        //         Authorization: 'Bearer' + this.props.token
+        //     }
+        // })
         axios.get(url)
+        
             .then(response => {
                 this.setState({pets: response.data.pets})
             })

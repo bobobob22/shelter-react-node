@@ -208,8 +208,7 @@ class AddNewPetForm extends Component {
         let form = (
             formElements.map((formEl, index) => (
                 <>
-                 {/* {index % 2 == 0 ? '<div className="wrapper">'  : '' } */}
-
+      
                     <Input
                     key={formEl.id}
                     elementType={formEl.config.elementType}
@@ -218,8 +217,6 @@ class AddNewPetForm extends Component {
                     label={formEl.config.elementConfig.label}
                     changed={(event) => this.handleInputChange(event, formEl.id)}
                     />
-
-                 {/* {index % 2 == 0 ?  '</div>'  : ''} */}
                 </>
             ))
         )

@@ -51,9 +51,9 @@ class Register extends Component {
                 touched: false
             },
             confirmpassword: {
-                elementType: 'password',
+                elementType: 'input',
                 elementConfig: {
-                    type: 'text',
+                    type: 'password',
                     placeholder: 'Confirm password',
                     label: 'Confirm password'
                 },
@@ -69,7 +69,54 @@ class Register extends Component {
         loading: false
     };
 
-    componentDidMount() {
+    addNewUser = (event) => {
+        event.preventDefault();
+        const formData = {};
+
+        for (let formEl in this.state.userForm) {
+            formData[formEl] = this.state.userForm[formEl].value;
+        }
+
+        fetch('http://localhost:8080/auth/signup', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                    email: formData.email,
+                    name: formData.name,
+                    password: formData.password
+                })
+            })
+            .then(res => {
+                return res.json()
+            })
+            .then(resData => console.log( resData ))
+            .catch(err => console.log(err))
+
+    }
+
+
+    handleInputChange = (event, inputId) => {
+
+      
+        const updatedUserForm = {
+            ...this.state.userForm
+        }
+
+        const updatedUserElement = {
+            ...updatedUserForm[inputId]
+        }
+
+        updatedUserElement.value = event.target.value;
+        updatedUserElement.touched = true;
+        updatedUserForm[inputId] = updatedUserElement;
+
+        this.setState({
+            userForm: updatedUserForm,
+            // formIsValid: formIsValid
+        });
+
 
     }
 
@@ -86,8 +133,7 @@ class Register extends Component {
         let form = (
             formElements.map((formEl, index) => (
                 <>
-                 {/* {index % 2 == 0 ? '<div className="wrapper">'  : '' } */}
-                    
+             
                     <Input
                     key={formEl.id}
                     elementType={formEl.config.elementType}
@@ -100,15 +146,14 @@ class Register extends Component {
                     changed={(event) => this.handleInputChange(event, formEl.id)}
                     />
                    
-                 {/* {index % 2 == 0 ?  '</div>'  : ''} */}
-            
+          
                 </>
             ))
         )
         
     return (
       <div className={styles.Register}>
-            <form onSubmit={this.handleNewPet}>
+            <form onSubmit={this.addNewUser}>
                     {form}
                     <Button
                         btnClass="submit-btn center-btn"

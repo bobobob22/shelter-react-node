@@ -43,9 +43,62 @@ class Login extends Component {
         loading: false
     };
 
-    componentDidMount() {
+
+
+    checkLogin = (event) => {
+        event.preventDefault();
+        const formData = {};
+
+        for (let formEl in this.state.userForm) {
+            formData[formEl] = this.state.userForm[formEl].value;
+        }
+
+        console.log(formData);
+
+        fetch('http://localhost:8080/auth/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                    email: formData.email,
+                    password: formData.password
+                })
+            })
+            .then(res => {
+                return res.json()
+            })
+            .then(resData => console.log( resData ))
+            .catch(err => console.log(err))
 
     }
+
+
+    handleInputChange = (event, inputId) => {
+
+      
+        const updatedUserForm = {
+            ...this.state.userForm
+        }
+
+        const updatedUserElement = {
+            ...updatedUserForm[inputId]
+        }
+
+        updatedUserElement.value = event.target.value;
+        updatedUserElement.touched = true;
+        updatedUserForm[inputId] = updatedUserElement;
+
+        this.setState({
+            userForm: updatedUserForm,
+            // formIsValid: formIsValid
+        });
+
+
+    }
+
+
+
 
     render() {
         const formElements = [];
@@ -79,20 +132,10 @@ class Login extends Component {
         )
         
     return (
-      <div >
-          <div className={styles.GoogleMaps}>
-                <GoogleMaps
-                    defaultZoom={10}
-                    defaultCenter={{ lat: 50.397, lng: 19.644 }}
-                    isMarkerShown={false}
-                    googleMapURL='https://maps.googleapis.com/maps/api/js?key=AIzaSyDkhedmOUePAAgnvFiv8NQ2wmESxUceVkU&callback=initMap'
-                    loadingElement={<div style={{ height: `500px` }} />}
-                    containerElement={<div style={{ height: `400px` }} />}
-                    mapElement={<div style={{ height: `100%` }} />}
-                />
-            </div>
+      <div className={styles.Login}>
+ 
    
-            <form onSubmit={this.handleNewPet}>
+            <form onSubmit={this.checkLogin}>
                     {form}
                     <Button
                         btnClass="submit-btn center-btn"
