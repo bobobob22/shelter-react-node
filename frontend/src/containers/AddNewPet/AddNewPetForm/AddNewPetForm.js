@@ -96,23 +96,23 @@ class AddNewPetForm extends Component {
                 valid: false,
                 touched: false
             },
-            longitude: {
-                elementType: 'input',
+            latitude: {
+                elementType: 'test',
                 elementConfig: {
                     type: 'text',
-                    placeholder: 'Longitude',
-                    label: 'Longitude'
+                    placeholder: 'latitude (np 50)',
+                    label: 'latitude'
                 },
                 value: '',
                 valid: false,
                 touched: false
             },
-            latitude: {
-                elementType: 'test',
+            longitude: {
+                elementType: 'input',
                 elementConfig: {
                     type: 'text',
-                    placeholder: 'latitude',
-                    label: 'latitude'
+                    placeholder: 'Longitude (np 20)',
+                    label: 'Longitude'
                 },
                 value: '',
                 valid: false,
@@ -143,7 +143,9 @@ class AddNewPetForm extends Component {
                     destination: formData.destination,
                     gender: formData.gender,
                     race: formData.race,
-                    imgUrl: formData.imgUrl
+                    imgUrl: formData.imgUrl,
+                    latitude: formData.latitude,
+                    longitude: formData.longitude
                 })
             })
             .then(res => {

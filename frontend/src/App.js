@@ -5,6 +5,7 @@ import Navigation from './containers/Navigation/Navigation';
 import Main from './components/Main/Main';
 import Footer from './components/Footer/Footer'
 
+
 import {library} from '@fortawesome/fontawesome-svg-core'
 import {
     faStarOfLife,
@@ -32,6 +33,13 @@ library.add(
     faSignInAlt
 );
 
+const mapStyles = {
+    maxWidth: '500px',
+    maxHeight: '300px',
+    height: '500px',
+    position: 'static'
+  };
+  
 class App extends Component {
     render() {
         return (
@@ -44,6 +52,7 @@ class App extends Component {
                         <main>
                             <Main/>
                         </main>
+            
                         <footer>
                             <Footer/>
                         </footer>
@@ -55,3 +64,6 @@ class App extends Component {
 }
 
 export default App;
+// export default GoogleApiWrapper({
+//     apiKey: 'AIzaSyC-OSkwuAyZvoIjobapjckOXSKnqDv950w'
+//   })(App);

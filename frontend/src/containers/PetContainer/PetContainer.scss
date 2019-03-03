@@ -1,0 +1,10 @@
+@import '../../styles/variables';
+
+.PetContainer {
+  display: grid;
+  grid-template-columns: 2fr 4fr 3fr;
+  justify-content: center;
+  color: #FFF;
+  padding: 10px;
+
+}

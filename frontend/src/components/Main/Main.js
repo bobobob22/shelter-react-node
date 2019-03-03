@@ -9,8 +9,13 @@ import Founded from '../../containers/Founded/Founded'
 import Login from '../../containers/Login/Login'
 import Register from '../../containers/Register/Register';
 import Page404 from "../Page404/Page404";
+
 import SinglePet from "../../containers/SinglePet/SinglePet";
 import ForAdoption from "../../containers/ForAdoption/ForAdoption";
+
+
+
+
 
 const main = () => (
     
@@ -19,6 +24,7 @@ const main = () => (
             <Route path="/pet/:id" component={SinglePet}/>
             <Route path="/lost" component={Lost}/>
             <Route path="/searching" component={ForAdoption}/>
+            <Route path="/founded" component={Founded}/>
             <Route path="/addnotice" component={AddNewPet}/>
             <Route path='/login' component={Login}/>
             <Route path='/register' component={Register} />

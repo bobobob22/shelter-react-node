@@ -2,6 +2,9 @@
 import React, { Component } from 'react';
 import Button from '../../components/UI/Button/Button'
 import Input from '../../components/UI/Input/Input'
+import styles from './Login.scss'
+
+import GoogleMaps from '../../components/GoogleMaps/GoogleMaps'
 
 class Login extends Component {
 
@@ -57,8 +60,7 @@ class Login extends Component {
         let form = (
             formElements.map((formEl, index) => (
                 <>
-                 {/* {index % 2 == 0 ? '<div className="wrapper">'  : '' } */}
-                    
+          
                     <Input
                     key={formEl.id}
                     elementType={formEl.config.elementType}
@@ -70,8 +72,7 @@ class Login extends Component {
                     label={formEl.config.elementConfig.label}
                     changed={(event) => this.handleInputChange(event, formEl.id)}
                     />
-                   
-                 {/* {index % 2 == 0 ?  '</div>'  : ''} */}
+              
             
                 </>
             ))
@@ -79,6 +80,18 @@ class Login extends Component {
         
     return (
       <div >
+          <div className={styles.GoogleMaps}>
+                <GoogleMaps
+                    defaultZoom={10}
+                    defaultCenter={{ lat: 50.397, lng: 19.644 }}
+                    isMarkerShown={false}
+                    googleMapURL='https://maps.googleapis.com/maps/api/js?key=AIzaSyDkhedmOUePAAgnvFiv8NQ2wmESxUceVkU&callback=initMap'
+                    loadingElement={<div style={{ height: `500px` }} />}
+                    containerElement={<div style={{ height: `400px` }} />}
+                    mapElement={<div style={{ height: `100%` }} />}
+                />
+            </div>
+   
             <form onSubmit={this.handleNewPet}>
                     {form}
                     <Button

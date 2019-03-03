@@ -11,7 +11,7 @@ class Navigation extends Component {
                         <NavigationItem link="/" name="Wszystkie" icon="star-of-life" className={[styles.nav__icon__allItems]}/>
                         <NavigationItem link="/lost" name="Zaginione" icon="search" className={[styles.nav__icon__search]}/>
                         <NavigationItem link="/searching" name="Do adopcji" icon="paw"/>
-                        <NavigationItem link="/" name="Znalezione" icon="bullhorn"/>
+                        <NavigationItem link="/founded" name="Znalezione" icon="bullhorn"/>
                         <NavigationItem link="/" name="Schroniska" icon="home"/>
                     </div>
                     <div className={styles.nav__right}>
