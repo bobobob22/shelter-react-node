@@ -1,4 +1,4 @@
-
+const { validationResult } = require('express-validator/check');
 const Pet = require('../models/pet');
 
 exports.getPets = (req, res, next) => {
@@ -6,40 +6,49 @@ exports.getPets = (req, res, next) => {
     const place = req.query.place;
     const filters = {};
 
-    if(destination){
+    if (destination) {
         filters.destination = destination
     }
-
     if (place) {
         filters.place = place;
     }
 
-
-    console.log(filters);
-
-    Pet.find({...filters})
+    Pet.find({ ...filters })
         .limit(10)
-        .sort({updatedAt: -1})
+        .sort({ updatedAt: -1 })
         .then(pets => {
             res.status(200)
-                .json( {pets: pets} )
+                .json({ pets: pets })
         })
         .catch(err => {
             console.log(err)
         })
 };
 
-
 exports.addPet = (req, res, next) => {
 
-    console.log(req, "@@@@@")
+    console.log(req, "REQ")
+    const errors = validationResult(req);
+    
+    if (!errors.isEmpty()) {
+        const error = new Error('Validation failed, data is incorrect');
+        error.statusCode = 422;
+        throw error;
+    }
+
+    if (!req.file){
+        const error = new Error('No image provided');
+        error.statusCode = 422;
+        throw error;
+    }
+
     const name = req.body.name;
     const place = req.body.place;
     const description = req.body.description;
     const destination = req.body.destination;
     const gender = req.body.gender;
     const race = req.body.race;
-    const imgUrl = req.body.imgUrl;
+    const imgUrl = req.file.path;
     const latitude = req.body.latitude;
     const longitude = req.body.longitude;
 
@@ -53,7 +62,8 @@ exports.addPet = (req, res, next) => {
         imgUrl,
         latitude,
         longitude,
-        creator: {name: 'Dawid'},
+        creator: { name: 'Dawid' },
+        createdAt: new Date()
     });
 
     pet.save()
@@ -64,26 +74,30 @@ exports.addPet = (req, res, next) => {
                 pet: result
             })
         })
-        .catch(err => console.log(err))
+        .catch(err => {
+            if(!err.statusCode){
+                err.statusCode = 500;
+            }
+            next(err);
+        })
 };
 
 
-exports.getSinglePet = (req, res, next ) => {
 
-    //z parametru w urlu
+exports.getSinglePet = (req, res, next) => {
+
     const petId = req.params.petId;
 
     Pet.findById(petId)
         .then(pet => {
-            if (!pet){
+            if (!pet) {
                 console.log("Niestety nie udalo sie znalezc zwierza")
             }
 
             res.status(200)
-                .json({message: 'Fetchet pet', pet: pet})
+                .json({ message: 'Fetchet pet', pet: pet })
 
         })
         .catch(err => console.log(err))
-
 
 }

@@ -1,11 +1,9 @@
-// const path = require('path');
+const path = require('path');
 
 const express = require('express');
-
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-
-// const multer = require('multer');
+const multer = require('multer');
 
 const petRoutes = require('./routes/pets');
 const authRoutes = require('./routes/auth');
@@ -13,9 +11,34 @@ const authRoutes = require('./routes/auth');
 
 const app = express();
 
-// app.use(bodyParser.urlencoded({extended: false}));
-//to parse incoming data to json -> req.body
+
+const fileStorage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'images');
+  },
+  filename: (req, file, cb) => {
+    cb(null, new Date().toISOString() + '-' + file.originalname);
+  }
+});
+
+const fileFilter = (req, file, cb) => {
+  if (
+    file.mimetype === 'image/png' ||
+    file.mimetype === 'image/jpg' ||
+    file.mimetype === 'image/jpeg'
+  ) {
+    cb(null, true)
+  } else {
+    cb(null, false)
+  }
+}
+
 app.use(bodyParser.json());
+
+app.use(
+  multer({ storage: fileStorage, fileFilter: fileFilter }).single('imgUrl')
+)
+app.use('/images', express.static(path.join(__dirname, 'images')))
 
 //add headers to disable CORS
 app.use((req, res, next) => {
@@ -42,30 +65,12 @@ mongoose
   .catch(err => console.log(err));
 
 
-
-
-
-
-//miejsce na middleware
-
-//parse incoming body request
-// app.use(express.static(path.join(__dirname, 'public')));
-
-
-
-
-
-
-// mongoose
-//   .connect(
-//     'mongodb+srv://Dawid:ejbXZ0wGMSO0V0Pz@sheltercluster-n0dwi.mongodb.net/shelter?retryWrites=true'
-//   )
-//   .then(result => {
-//     console.log("Connected");
-//     app.listen(8080);
-//   })
-//   .catch(err => console.log(err));
-
+app.use((error, req, res, next) => {
+  console.log(error);
+  const status = error.statusCode || 500;
+  const message = error.message;
+  res.status(status).json({ message: message });
+})
 
 
 console.log("working");
