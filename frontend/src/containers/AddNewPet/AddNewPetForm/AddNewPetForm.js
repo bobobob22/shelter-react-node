@@ -4,6 +4,8 @@ import styles from './AddNewPetForm.scss';
 import Button from '../../../components/UI/Button/Button';
 import Input from '../../../components/UI/Input/Input'
 
+import { generateBase64FromImage } from '../../../util/image';
+
 class AddNewPetForm extends Component {
 
     state = {
@@ -88,7 +90,7 @@ class AddNewPetForm extends Component {
             imgUrl: {
                 elementType: 'input',
                 elementConfig: {
-                    type: 'input',
+                    type: 'file',
                     placeholder: 'Image Url (link now)',
                     label: 'Image'
                 },
@@ -128,27 +130,29 @@ class AddNewPetForm extends Component {
         const formData = {};
 
         for (let formEl in this.state.petForm) {
+
             formData[formEl] = this.state.petForm[formEl].value;
         }
 
+        const formDataWithImage = new FormData();
+        formDataWithImage.append('name', formData.name)
+        formDataWithImage.append('place', formData.place)
+        formDataWithImage.append('description', formData.description)
+        formDataWithImage.append('destination', formData.destination)
+        formDataWithImage.append('gender', formData.gender)
+        formDataWithImage.append('race', formData.race)
+        formDataWithImage.append('imgUrl', formData.imgUrl)
+        formDataWithImage.append('latitude', formData.latitude)
+        formDataWithImage.append('longitude', formData.longitude)
+
         fetch('http://localhost:8080/pets/add-new', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                    name: formData.name,
-                    place: formData.place,
-                    description: formData.description,
-                    destination: formData.destination,
-                    gender: formData.gender,
-                    race: formData.race,
-                    imgUrl: formData.imgUrl,
-                    latitude: formData.latitude,
-                    longitude: formData.longitude
-                })
+                method: 'POST',
+                body: formDataWithImage
             })
             .then(res => {
+                if (res.status !== 200 && res.status !== 201) {
+                    throw new Error('Creating or editing a pet failed!');
+                  }
                 return res.json()
             })
             .then(resData => console.log( resData ))
@@ -170,8 +174,16 @@ class AddNewPetForm extends Component {
             ...updatedPetForm[inputId]
         }
 
+
+        if (event.target.files) {
+            console.log(event.target.files[0]);
+            // updatedPetElement.value = event.target.files[0]
+        } else {
+            updatedPetElement.value = event.target.value;
+        }
+
         //pobieramy wartosc
-        updatedPetElement.value = event.target.value;
+        // updatedPetElement.value = event.target.value;
         //input dotkienty -> true
         updatedPetElement.touched = true;
         //nowa wartosc inputa oraz touched idzie do formularzu
@@ -184,7 +196,7 @@ class AddNewPetForm extends Component {
         //     formIsValid = updatedPetForm[inputId].valid && formIsValid;
         // }
 
-        //ustawiamy nowy state -> podmieniamy wartosc dotychczasowego
+
         this.setState({
             petForm: updatedPetForm,
             // formIsValid: formIsValid
@@ -208,7 +220,7 @@ class AddNewPetForm extends Component {
         let form = (
             formElements.map((formEl, index) => (
                 <>
-      
+                  
                     <Input
                     key={formEl.id}
                     elementType={formEl.config.elementType}

@@ -5,6 +5,9 @@
   background: $mainColor;
   display: grid;
   grid-template-columns: auto auto;
+  &__container{
+    
+  }
   &__right {
     justify-self: end;
   }
@@ -16,4 +19,8 @@
       color: #FFF;
     }
   }
+}
+
+@media all and (max-width: 768px){
+
 }

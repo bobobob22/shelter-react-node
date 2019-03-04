@@ -1,11 +1,8 @@
 @import '../../../styles/variables';
 
-.navigation__elementsContainer {
-  display: inline-block;
-}
-
 .navigation__item {
   list-style-type: none;
+  display: inline-block;
 }
 
 .nav__icon {
@@ -19,5 +16,5 @@
   color: $normalWhite;
   font-weight: 300;
   display: block;
-  margin: 7px 15px;
+  padding: 5px 10px;
 }

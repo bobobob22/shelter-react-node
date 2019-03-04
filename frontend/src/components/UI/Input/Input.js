@@ -10,8 +10,6 @@ const input = (props) => {
     //pobieramy klasy
     const inputClasses = [classes.InputElement];
 
-    //najwazniejsze tutaj onChange ktore wysyla propsy do rodzica
-
     //walidacja -> w komponencie gdzie wywolujemy formularz z inputami
     //deklarujemy wartosci -> propsy invalid - czy zwalidowany, touched - czy (dotkniety)
     //te propsy sa walidowane w komponencie z wywolanym formularzem, ogarniaja je metody
